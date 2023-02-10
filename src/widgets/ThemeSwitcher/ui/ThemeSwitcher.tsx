@@ -16,7 +16,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     return (
         <Button
             theme={ThemeButton.CLEAR}
-            className={classNames(cls.ThemeSwitcher, {}, [className])}
+            className={classNames('', {}, [className])}
             onClick={toggleTheme}
         >
             {theme === Theme.LIGHT ? <LightIcon/> : <DarkIcon/>}
