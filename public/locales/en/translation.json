@@ -1,5 +1,7 @@
 {
   "Страница не найдена": "Page not found",
   "Тестовый пример": "Test example",
-  "Язык": "English"
+  "Язык": "English",
+  "Произошла непредвиденная ошибка": "Unexpected error occurred",
+  "Обновить страницу": "Update page"
 }
