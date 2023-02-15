@@ -39,6 +39,16 @@
         "@typescript-eslint/prefer-nullish-coalescing": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/naming-convention": "off",
-        "i18next/no-literal-string": ["error", {"markupOnly":  true}]
+        "@typescript-eslint/no-floating-promises": "off",
+        "i18next/no-literal-string": [
+            "error",
+            {
+                "markupOnly":  true,
+                "ignoreAttribute": [
+                    "data-testid",
+                    "to"
+                ]
+            }
+        ]
     }
 }
