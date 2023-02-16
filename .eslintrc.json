@@ -50,6 +50,7 @@
                 ]
             }
         ],
-        "@typescript-eslint/consistent-type-assertions": "off"
+        "@typescript-eslint/consistent-type-assertions": "off",
+        "react/display-name": [0, { "ignoreTranspilerName": true }]
     }
 }
