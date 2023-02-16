@@ -21,16 +21,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install modules
-        uses: npm install
+        run: npm install
 
       - name: Build production project
-        uses: npm run build:prod
+        run: npm run build:prod
 
       - name: Linting Typescript
-        uses: npm run lint:ts
+        run: npm run lint:ts
 
       - name: Linting SCSS
-        uses: npm run lint:scss
+        run: npm run lint:scss
 
       - name: Unit testing
-        uses: npm run test:unit
+        run: npm run test:unit
