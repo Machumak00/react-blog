@@ -1,5 +1,5 @@
 import React from 'react'
-import { type ComponentStory, type ComponentMeta, addDecorator } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { Button, ThemeButton } from './Button'
 import 'app/styles/index.scss'

@@ -14,9 +14,7 @@ export default {
     }
 } as ComponentMeta<typeof AboutPage>
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-const Template: ComponentStory<typeof AboutPage> = (args) => <AboutPage {...args} />
+const Template: ComponentStory<typeof AboutPage> = (args) => <AboutPage {...args as typeof AboutPage} />
 
 export const Light = Template.bind({})
 Light.args = {}

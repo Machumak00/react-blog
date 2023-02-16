@@ -49,6 +49,7 @@
                     "to"
                 ]
             }
-        ]
+        ],
+        "@typescript-eslint/consistent-type-assertions": "off"
     }
 }
