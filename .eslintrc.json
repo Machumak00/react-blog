@@ -25,7 +25,8 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "i18next"
+        "i18next",
+        "react-hooks"
     ],
     "rules": {
         "indent": ["error", 4],
@@ -51,6 +52,9 @@
             }
         ],
         "@typescript-eslint/consistent-type-assertions": "off",
-        "react/display-name": [0, { "ignoreTranspilerName": true }]
+        "react/display-name": [0, { "ignoreTranspilerName": true }],
+        "@typescript-eslint/no-confusing-void-expression": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
     }
 }
