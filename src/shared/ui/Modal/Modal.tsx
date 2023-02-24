@@ -2,14 +2,13 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { type KeyboardEvent, type MouseEvent, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { Portal } from 'shared/ui/Portal/Portal'
-import theme from '@storybook/addon-interactions/dist/ts3.9/theme'
-import { useTheme } from 'app/providers/ThemeProvider'
 
 interface ModalProps {
     className?: string
     children?: ReactNode
     isOpen?: boolean
     onClose?: () => void
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY = 300
@@ -19,10 +18,12 @@ export const Modal = (props: ModalProps) => {
         className,
         children,
         isOpen,
-        onClose
+        onClose,
+        lazy
     } = props
 
     const [isClosing, setIsClosing] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
     const closeHandler = useCallback(() => {
@@ -50,6 +51,8 @@ export const Modal = (props: ModalProps) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-expect-error
             window.addEventListener('keydown', onKeyDown)
+
+            setIsMounted(true)
         }
 
         return () => {
@@ -64,6 +67,10 @@ export const Modal = (props: ModalProps) => {
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing
+    }
+
+    if (lazy && !isMounted) {
+        return null
     }
 
     return (
