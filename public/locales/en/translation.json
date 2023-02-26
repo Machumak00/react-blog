@@ -9,8 +9,11 @@
   "Главная": "Main",
   "О сайте": "About us",
   "Войти": "Login",
+  "Выйти": "Logout",
   "Увеличить": "Increase",
   "Уменьшить": "Decrease",
   "Введите username": "Enter username",
-  "Введите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Authorization form",
+  "Вы ввели неверный логин или пароль": "You entered an incorrect username or password"
 }
