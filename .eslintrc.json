@@ -48,7 +48,8 @@
                 "ignoreAttribute": [
                     "data-testid",
                     "to",
-                    "theme"
+                    "theme",
+                    "reducerKey"
                 ]
             }
         ],
