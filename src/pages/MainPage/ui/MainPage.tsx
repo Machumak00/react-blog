@@ -1,19 +1,14 @@
-import React, { useState } from 'react'
+import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const MainPage = () => {
+const MainPage = memo(() => {
     const { t } = useTranslation('main')
-    const [value, setValue] = useState('')
-
-    const onChange = (value: string) => {
-        setValue(value)
-    }
 
     return (
         <div>
             {t('Главная страница')}
         </div>
     )
-}
+})
 
 export default MainPage

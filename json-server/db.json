@@ -8,5 +8,14 @@
   "users": [
     { "id": "1", "username": "admin", "password": "123" }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "Михаил",
+    "lastname": "Чумак",
+    "age": 23,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Perm",
+    "username": "admin",
+    "avatar": "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
+  }
 }
