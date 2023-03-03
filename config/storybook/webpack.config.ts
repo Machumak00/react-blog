@@ -12,27 +12,32 @@ export default ({ config }: { config: webpack.Configuration }) => {
         src: path.resolve(__dirname, '..', '..', 'src')
     }
 
-    config.resolve.modules.unshift(paths.src)
-    config.resolve.extensions.push('.ts', '.tsx')
+    config.resolve?.modules?.unshift(paths.src)
+    config.resolve?.extensions?.push('.ts', '.tsx')
 
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        if (/svg/.test(rule.test)) {
-            return { ...rule, exclude: /\.svg/i }
-        }
+    if (config.module) {
+        const rules = config.module?.rules as RuleSetRule[]
 
-        return rule
-    })
+        config.module.rules = rules.map((rule: RuleSetRule) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            if (/svg/.test(rule.test)) {
+                return { ...rule, exclude: /\.svg/i }
+            }
 
-    config.module.rules.push({
-        test: /\.svg$/,
-        use: ['@svgr/webpack']
-    })
-    config.module.rules.push(buildCssLoader(true))
+            return rule
+        })
 
-    config.plugins.push(new DefinePlugin({
-        __IS_DEV__: true
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: ['@svgr/webpack']
+        })
+        config.module.rules.push(buildCssLoader(true))
+    }
+
+    config.plugins?.push(new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify('')
     }))
 
     return config
