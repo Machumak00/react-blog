@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { memo, useCallback } from 'react'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
@@ -51,7 +51,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')}/>
-                {error && <Text text={t('Вы ввели неверный логин или пароль')} theme="error"/>}
+                {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR}/>}
                 <Input
                     type="text"
                     className={cls.input}

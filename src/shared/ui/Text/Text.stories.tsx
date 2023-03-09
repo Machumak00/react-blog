@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
-import { Text } from './Text'
+import { Text, TextTheme } from './Text'
 import 'app/styles/index.scss'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -26,7 +26,7 @@ export const Error = Template.bind({})
 Error.args = {
     title: 'Title',
     text: 'Description description description description',
-    theme: 'error'
+    theme: TextTheme.ERROR
 }
 
 export const OnlyTitle = Template.bind({})
