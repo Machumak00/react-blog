@@ -3,6 +3,7 @@ import cls from './PageError.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button/Button'
 import { memo } from 'react'
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 
 interface PageErrorProps {
     className?: string
@@ -17,7 +18,11 @@ export const PageError = memo(({ className }: PageErrorProps) => {
 
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
-            <p>{t('Произошла непредвиденная ошибка')}</p>
+            <Text
+                text={t('Произошла непредвиденная ошибка')}
+                align={TextAlign.CENTER}
+                theme={TextTheme.PRIMARY}
+            />
             <Button onClick={reloadPage}>
                 {t('Обновить страницу')}
             </Button>
