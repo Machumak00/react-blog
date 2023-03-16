@@ -4,7 +4,7 @@ import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 
 describe('getProfileForm.test', () => {
-    test('should return error', () => {
+    test('should return form', () => {
         const form = {
             username: 'admin',
             age: 23,

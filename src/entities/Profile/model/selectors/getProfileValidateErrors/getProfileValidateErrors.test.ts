@@ -3,7 +3,7 @@ import { getProfileValidateErrors } from './getProfileValidateErrors'
 import { ValidateProfileError } from 'entities/Profile'
 
 describe('getProfileValidateErrors.test', () => {
-    test('should return error', () => {
+    test('should return validateErrors', () => {
         const validateErrors = [
             ValidateProfileError.INCORRECT_AGE,
             ValidateProfileError.INCORRECT_USER_DATA

@@ -2,7 +2,7 @@ import { type StateSchema } from 'app/providers/StoreProvider'
 import { getProfileReadonly } from './getProfileReadonly'
 
 describe('getProfileReadonly.test', () => {
-    test('should return error', () => {
+    test('should return true', () => {
         const state: DeepPartial<StateSchema> = {
             profile: {
                 readonly: true
