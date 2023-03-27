@@ -11,7 +11,7 @@ import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading
-} from '../../model/selectors/getArticleDetails'
+} from '../../model/selectors/articleDetails'
 import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
@@ -22,6 +22,7 @@ import { type ArticleBlock, ArticleBlockType } from '../../model/types/article'
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 interface ArticleDetailsProps {
     className?: string
@@ -68,11 +69,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
     }, [])
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id))
-        }
-    }, [dispatch, id])
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id))
+    })
 
     let content
 

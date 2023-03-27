@@ -1,7 +1,7 @@
 import { type StateSchema } from 'app/providers/StoreProvider'
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './getArticleDetails'
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'
 
-describe('getArticleDetailsData', () => {
+describe('articleDetailsData', () => {
     test('should return data', () => {
         const data = {
             id: '1',
@@ -24,7 +24,7 @@ describe('getArticleDetailsData', () => {
     })
 })
 
-describe('getArticleDetailsError', () => {
+describe('articleDetailsError', () => {
     test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
@@ -42,7 +42,7 @@ describe('getArticleDetailsError', () => {
     })
 })
 
-describe('getArticleDetailsIsLoading', () => {
+describe('articleDetailsIsLoading', () => {
     test('should return isLoading', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
