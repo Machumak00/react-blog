@@ -53,7 +53,8 @@
                 "ignoreAttribute": [
                     "data-testid",
                     "to",
-                    "reducerKey"
+                    "reducerKey",
+                    "view"
                 ]
             }
         ],

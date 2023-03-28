@@ -10,6 +10,10 @@ const data: Article = {
     createdAt: '16.03.2023',
     subtitle: 'subtitle',
     img: '',
+    user: {
+        id: '1',
+        username: 'admin'
+    },
     views: 12,
     blocks: []
 }
