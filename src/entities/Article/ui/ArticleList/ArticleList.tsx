@@ -5,6 +5,7 @@ import { memo } from 'react'
 import { type Article, type ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton'
+import { Loader } from 'shared/ui/Loader/Loader'
 
 interface ArticleListProps {
     className?: string
@@ -24,20 +25,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {
-                    articles.length > 0
-                        ? articles.map(
-                            (article: Article) => (
-                                <ArticleListItemSkeleton
-                                    view={view}
-                                    className={cls.card}
-                                    key={article.id}
-                                />
-                            )
-                        )
-                        : null
-                }
+            <div className={classNames('', {}, [className])}>
+                <Loader/>
             </div>
         )
     }
