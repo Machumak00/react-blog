@@ -17,13 +17,11 @@ export const AppRouter = memo(() => {
 
     return (
         <Suspense fallback={<PageLoader/>}>
-            <div className="page-wrapper">
-                <Routes>
-                    {Object.values(routeConfig).map((route) => (
-                        renderWithWrapper(route)
-                    ))}
-                </Routes>
-            </div>
+            <Routes>
+                {Object.values(routeConfig).map((route) => (
+                    renderWithWrapper(route)
+                ))}
+            </Routes>
         </Suspense>
     )
 })
