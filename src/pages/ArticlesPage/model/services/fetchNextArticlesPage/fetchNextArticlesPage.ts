@@ -3,14 +3,13 @@ import { type ThunkConfig } from 'app/providers/StoreProvider'
 import {
     getArticlesPageHasMore,
     getArticlesPageIsLoading,
-    getArticlesPageLimit,
     getArticlesPageNum
 } from '../../selectors/articlesPageSelectors'
 import { articlesPageActions } from '../../slices/articlesPageSlice'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 
 export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
-    '/fetchNextArticlesPage',
+    'articlesPage/fetchNextArticlesPage',
     async (_, thunkAPI) => {
         const {
             getState,

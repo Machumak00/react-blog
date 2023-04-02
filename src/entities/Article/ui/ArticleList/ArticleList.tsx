@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import { type Article, type ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton'
 import { Loader } from 'shared/ui/Loader/Loader'
 
 interface ArticleListProps {
@@ -39,7 +38,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     ? articles.map(renderArticle)
                     : null
             }
-            {isLoading && (<Loader/>)}
+            {isLoading && (
+                <Loader className={cls.loader}/>
+            )}
         </div>
     )
 })
