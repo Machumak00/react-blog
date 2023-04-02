@@ -15,6 +15,7 @@ import { type ArticleDetailsSchema } from 'entities/Article'
 import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { type AddCommentFormSchema } from 'features/AddCommentForm'
 import { type ArticlesPageSchema } from 'pages/ArticlesPage'
+import { type ScrollSaveSchema } from 'features/ScrollSave'
 
 export interface StateSchema {
     counter: CounterSchema
@@ -27,6 +28,7 @@ export interface StateSchema {
     articleDetailsComments?: ArticleDetailsCommentsSchema
     addCommentForm?: AddCommentFormSchema
     articlesPage?: ArticlesPageSchema
+    scrollSave: ScrollSaveSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
