@@ -11,8 +11,9 @@ describe('initArticlesPage.test', () => {
                 _mounted: false
             }
         })
+        const searchParams = new URLSearchParams()
 
-        await thunk.callThunk()
+        await thunk.callThunk(searchParams)
 
         expect(thunk.dispatch).toBeCalledTimes(4)
         expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 })
@@ -24,8 +25,9 @@ describe('initArticlesPage.test', () => {
                 _mounted: true
             }
         })
+        const searchParams = new URLSearchParams()
 
-        await thunk.callThunk()
+        await thunk.callThunk(searchParams)
 
         expect(thunk.dispatch).toBeCalledTimes(2)
         expect(fetchArticlesList).not.toHaveBeenCalled()

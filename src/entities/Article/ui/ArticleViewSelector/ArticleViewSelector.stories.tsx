@@ -4,7 +4,7 @@ import { ArticleViewSelector } from './ArticleViewSelector'
 import 'app/styles/index.scss'
 
 export default {
-    title: '/ArticleViewSelector',
+    title: 'entities/Article/ArticleViewSelector',
     component: ArticleViewSelector
 } as ComponentMeta<typeof ArticleViewSelector>
 

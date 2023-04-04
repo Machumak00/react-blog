@@ -7,7 +7,7 @@ import { type Article } from 'entities/Article'
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article'
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails
 } as ComponentMeta<typeof ArticleDetails>
 

@@ -4,7 +4,7 @@ import { CommentList } from './CommentList'
 import 'app/styles/index.scss'
 
 export default {
-    title: 'entities/CommentList',
+    title: 'entities/Comment/CommentList',
     component: CommentList
 } as ComponentMeta<typeof CommentList>
 

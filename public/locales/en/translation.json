@@ -19,5 +19,17 @@
   "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
   "Введите текст комментария": "Enter comment text",
   "Отправить": "Send",
-  "Читать далее...": "Read more..."
+  "Читать далее...": "Read more...",
+  "Сортировать по": "Sort by",
+  "по": "by",
+  "возрастанию": "ascending",
+  "убыванию": "descending",
+  "дате создания": "created at",
+  "названию": "title",
+  "просмотрам": "views",
+  "ALL": "ALL",
+  "IT": "IT",
+  "SCIENCE": "SCIENCE",
+  "ECONOMICS": "ECONOMICS",
+  "Статьи не найдены": "Articles not found"
 }

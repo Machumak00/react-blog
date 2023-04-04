@@ -4,7 +4,7 @@ import { CommentCard } from './CommentCard'
 import 'app/styles/index.scss'
 
 export default {
-    title: 'entities/CommentCard',
+    title: 'entities/Comment/CommentCard',
     component: CommentCard
 } as ComponentMeta<typeof CommentCard>
 

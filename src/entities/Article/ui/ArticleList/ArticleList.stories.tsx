@@ -5,7 +5,7 @@ import 'app/styles/index.scss'
 import { type Article } from '../../model/types/article'
 
 export default {
-    title: 'entities/ArticleList',
+    title: 'entities/Article/ArticleList',
     component: ArticleList
 } as ComponentMeta<typeof ArticleList>
 
