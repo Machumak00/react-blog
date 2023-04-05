@@ -54,7 +54,8 @@
                     "data-testid",
                     "to",
                     "reducerKey",
-                    "view"
+                    "view",
+                    "target"
                 ]
             }
         ],

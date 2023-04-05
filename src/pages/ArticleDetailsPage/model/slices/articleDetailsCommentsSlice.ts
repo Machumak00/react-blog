@@ -2,14 +2,16 @@ import { type ActionReducerMapBuilder, createEntityAdapter, createSlice, type Pa
 import { type Comment } from 'entities/Comment'
 import { type StateSchema } from 'app/providers/StoreProvider'
 import { type ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema'
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import {
+    fetchCommentsByArticleId
+} from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 
 const commentsAdapter = createEntityAdapter<Comment>({
     selectId: (comment) => comment.id
 })
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsComments || commentsAdapter.getInitialState()
+    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
 )
 
 const articleDetailsCommentsSlice = createSlice({
