@@ -1,4 +1,6 @@
 {
+  "Название приложения": "React Blog App",
+  "Создать статью": "Create article",
   "Страница не найдена": "Page not found",
   "Тестовый пример": "Test example",
   "Язык": "English",
@@ -31,5 +33,8 @@
   "IT": "IT",
   "SCIENCE": "SCIENCE",
   "ECONOMICS": "ECONOMICS",
-  "Статьи не найдены": "Articles not found"
+  "Статьи не найдены": "Articles not found",
+  "Редактировать": "Edit",
+  "Создание новой статьи": "Creating new article",
+  "Редактирование статьи": "Editing article with ID = {{id}}"
 }
