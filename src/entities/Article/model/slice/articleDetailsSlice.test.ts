@@ -1,7 +1,8 @@
-import { type Article, type ArticleDetailsSchema } from 'entities/Article'
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice'
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById'
-import { ArticleType } from 'entities/Article/model/types/article'
+import { type Article } from '../types/article'
+import { type ArticleDetailsSchema } from '../types/articleDetailsSchema'
+import { articleDetailsReducer } from './articleDetailsSlice'
+import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById'
+import { ArticleType } from '../types/article'
 
 const data: Article = {
     id: '1',

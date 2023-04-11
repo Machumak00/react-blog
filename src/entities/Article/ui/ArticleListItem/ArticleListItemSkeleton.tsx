@@ -4,7 +4,6 @@ import { memo } from 'react'
 import { type ArticleView } from '../../model/types/article'
 import { Card } from 'shared/ui/Card/Card'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import TextStories from 'shared/ui/Text/Text.stories'
 
 interface ArticleListItemSkeletonProps {
     className?: string

@@ -5,7 +5,6 @@ import 'app/styles/index.scss'
 import { AppLink, AppLinkTheme } from './AppLink'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
-import { Dark } from 'widgets/Navbar/ui/Navbar.stories'
 
 export default {
     title: 'shared/AppLink',
