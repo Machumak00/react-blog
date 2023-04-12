@@ -56,7 +56,11 @@
                     "to",
                     "reducerKey",
                     "view",
-                    "target"
+                    "target",
+                    "justify",
+                    "align",
+                    "direction",
+                    "gap"
                 ]
             }
         ],
