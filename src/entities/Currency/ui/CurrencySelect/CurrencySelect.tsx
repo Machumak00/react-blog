@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-import { Select } from 'shared/ui/Select/Select'
 import { Currency } from '../../model/types/currency'
 import { memo, useCallback, useMemo } from 'react'
 import { getOptionsFromObject } from 'shared/lib/getOptionsFromObject/getOptionsFromObject'
@@ -40,7 +39,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
             onChange={onChangeHandler}
             className={classNames('', {}, [className])}
             readonly={readonly}
-            direction={'top'}
+            direction={'top right'}
         />
     )
 })
