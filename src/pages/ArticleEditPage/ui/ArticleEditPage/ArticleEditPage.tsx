@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './ArticleEditPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import { Page } from 'widgets/Page'
@@ -18,7 +17,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     const isEdit = Boolean(id)
 
     return (
-        <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
+        <Page className={classNames('', {}, [className])}>
             {isEdit
                 ? t('Редактирование статьи', { id })
                 : t('Создание новой статьи')}

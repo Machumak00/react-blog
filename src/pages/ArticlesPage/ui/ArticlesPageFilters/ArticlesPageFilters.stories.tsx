@@ -4,7 +4,7 @@ import { ArticlesPageFilters } from './ArticlesPageFilters'
 import 'app/styles/index.scss'
 
 export default {
-    title: 'pages/Article/ArticlesPageFilters',
+    title: 'pages/ArticlesPage/ArticlesPageFilters',
     component: ArticlesPageFilters
 } as ComponentMeta<typeof ArticlesPageFilters>
 
