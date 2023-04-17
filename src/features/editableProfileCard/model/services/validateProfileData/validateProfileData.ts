@@ -1,7 +1,7 @@
-import { type ProfileTypes } from 'entities/Profile'
+import { type Profile } from 'entities/Profile'
 import { ValidateProfileError } from '../../types/editableProfileCardSchema'
 
-export const validateProfileData = (profile?: ProfileTypes) => {
+export const validateProfileData = (profile?: Profile) => {
     if (!profile) {
         return [ValidateProfileError.NO_DATA]
     }

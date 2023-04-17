@@ -1,7 +1,7 @@
 import { type Currency } from 'entities/Currency/model/types/currency'
 import { type Country } from 'entities/Country'
 
-export interface ProfileTypes {
+export interface Profile {
     id?: string
     firstname?: string
     lastname?: string

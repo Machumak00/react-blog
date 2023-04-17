@@ -15,6 +15,7 @@ interface ArticleListProps {
     isLoading?: boolean
     view?: ArticleView
     target?: HTMLAttributeAnchorTarget
+    virtualized?: boolean
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -23,7 +24,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view = 'small',
         isLoading,
-        target
+        target,
+        virtualized = true
     } = props
     const { t } = useTranslation()
 
@@ -31,7 +33,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const itemsPerRow = isBig ? 1 : 3
     const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow)
 
-    const rowRenderer = ({ index, isScrolling, key, style }: ListRowProps) => {
+    const rowRenderer = ({
+        index,
+        isScrolling,
+        key,
+        style
+    }: ListRowProps) => {
         const items = []
         const fromIndex = index * itemsPerRow
         const toIndex = Math.min(fromIndex + itemsPerRow, articles.length)
@@ -83,17 +90,31 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     ref={registerChild}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                 >
-                    <List
-                        autoHeight
-                        rowCount={rowCount}
-                        height={height ?? 700}
-                        rowHeight={isBig ? 700 : 330}
-                        rowRenderer={rowRenderer}
-                        width={width ? width - 80 : 700}
-                        onScroll={onChildScroll}
-                        isScrolling={isScrolling}
-                        scrollTop={scrollTop}
-                    />
+                    {virtualized
+                        ? (
+                            <List
+                                autoHeight
+                                rowCount={rowCount}
+                                height={height ?? 700}
+                                rowHeight={isBig ? 700 : 330}
+                                rowRenderer={rowRenderer}
+                                width={width ? width - 80 : 700}
+                                onScroll={onChildScroll}
+                                isScrolling={isScrolling}
+                                scrollTop={scrollTop}
+                            />
+                        )
+                        : (
+                            articles.map(article => (
+                                <ArticleListItem
+                                    article={article}
+                                    view={view}
+                                    target={target}
+                                    key={article.id}
+                                    className={cls.card}
+                                />
+                            ))
+                        )}
                     {isLoading && (<Loader className={cls.loader}/>)}
                 </div>
             )}

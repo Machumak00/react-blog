@@ -2,7 +2,7 @@ import { type ActionReducerMapBuilder, createSlice, type PayloadAction } from '@
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 import { type ProfileSchema } from '../types/editableProfileCardSchema'
-import { type ProfileTypes } from 'entities/Profile'
+import { type Profile } from 'entities/Profile'
 
 const initialState: ProfileSchema = {
     readonly: true,
@@ -21,7 +21,7 @@ export const profileSlice = createSlice({
             state.validateErrors = undefined
             state.form = state.data
         },
-        updateProfile: (state, action: PayloadAction<ProfileTypes>) => {
+        updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
                 ...state.form,
                 ...action.payload
@@ -36,7 +36,7 @@ export const profileSlice = createSlice({
             })
             .addCase(
                 fetchProfileData.fulfilled,
-                (state, action: PayloadAction<ProfileTypes>
+                (state, action: PayloadAction<Profile>
                 ) => {
                     state.isLoading = false
                     state.data = action.payload
@@ -52,7 +52,7 @@ export const profileSlice = createSlice({
             })
             .addCase(
                 updateProfileData.fulfilled,
-                (state, action: PayloadAction<ProfileTypes>
+                (state, action: PayloadAction<Profile>
                 ) => {
                     state.isLoading = false
                     state.data = action.payload
