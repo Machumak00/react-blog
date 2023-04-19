@@ -461,15 +461,22 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
     },
     {
       "id": "2",
       "username": "machumak00",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://m.economictimes.com/thumb/msid-98683708,width-1200,height-900,resizemode-4,imgsize-99158/russian-hacktivist-group-phoenix-targets-indias-health-ministry-website-cloudsek.jpg"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
+      "avatar": "https://cdn-icons-png.flaticon.com/512/76/76828.png"
     }
   ],
   "profile": [
