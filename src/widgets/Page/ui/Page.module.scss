@@ -1,10 +1,9 @@
 .Page {
-    flex-grow: 1;
+    flex: 1 1 0;
     padding: 20px 20px 20px 45px;
     height: calc(100vh - var(--navbar-height));
     width: 100%;
     overflow-y: auto;
-    flex-shrink: 100;
 }
 
 .trigger {
