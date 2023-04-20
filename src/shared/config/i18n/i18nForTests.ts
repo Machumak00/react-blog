@@ -5,6 +5,7 @@ i18n
     .use(initReactI18next)
     .init({
         fallbackLng: false,
+        returnNull: false,
         debug: true,
 
         interpolation: {

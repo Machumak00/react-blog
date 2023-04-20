@@ -75,6 +75,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         <WindowScroller
             scrollElement={document.getElementById(PAGE_ID) as Element}
         >
@@ -87,11 +89,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 isScrolling
             }) => (
                 <div
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-expect-error
                     ref={registerChild}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                 >
                     {virtualized
                         ? (
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-expect-error
                             <List
                                 autoHeight
                                 rowCount={rowCount}

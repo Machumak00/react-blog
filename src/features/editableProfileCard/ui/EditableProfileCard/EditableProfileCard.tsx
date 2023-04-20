@@ -24,7 +24,7 @@ import { VStack } from 'shared/ui/Stack'
 
 interface EditableProfileCardProps {
     className?: string
-    id: string
+    id?: string
 }
 
 const reducers: ReducersList = {
@@ -53,9 +53,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     }
 
     useInitialEffect(() => {
-        if (id) {
-            dispatch(fetchProfileData(id))
-        }
+        dispatch(fetchProfileData(id))
     })
 
     const onChangeFirstname = useCallback((value?: string) => {
