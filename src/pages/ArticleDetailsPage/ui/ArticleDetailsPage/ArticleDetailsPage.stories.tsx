@@ -2,9 +2,9 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import ArticleDetailsPage from './ArticleDetailsPage'
 import 'app/styles/index.scss'
-import { type Article } from 'entities/Article'
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article'
+import { type Article, ArticleType } from 'entities/Article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { ArticleBlockType } from 'entities/Article'
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',

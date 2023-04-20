@@ -4,7 +4,7 @@ import { ArticleDetails } from './ArticleDetails'
 import 'app/styles/index.scss'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { type Article } from '../../model/types/article'
-import { ArticleBlockType, ArticleType } from '../../model/types/article'
+import { ArticleBlockType, ArticleType } from '../../model/consts/consts'
 
 export default {
     title: 'entities/Article/ArticleDetails',

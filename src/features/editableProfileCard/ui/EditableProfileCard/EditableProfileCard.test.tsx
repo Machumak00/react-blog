@@ -1,6 +1,6 @@
 import { EditableProfileCard } from './EditableProfileCard'
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
-import { type Profile, ProfileCard } from 'entities/Profile'
+import { type Profile } from 'entities/Profile'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { profileReducer } from '../../model/slice/profileSlice'
@@ -27,7 +27,10 @@ const options = {
             form: profile
         },
         user: {
-            authData: { id: '1', username: 'admin' }
+            authData: {
+                id: '1',
+                username: 'admin'
+            }
         }
     },
     asyncReducers: {
