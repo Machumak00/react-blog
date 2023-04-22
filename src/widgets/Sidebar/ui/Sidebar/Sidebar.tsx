@@ -35,7 +35,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <VStack align={'center'}>
-                <VStack role={'navigation'} gap="8">
+                <VStack role={'navigation'} gap="16">
                     {itemsList}
                 </VStack>
                 <HStack gap={'8'} align={'center'} justify={'center'} className={cls.switchers}>

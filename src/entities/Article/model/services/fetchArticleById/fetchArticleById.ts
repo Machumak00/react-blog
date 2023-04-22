@@ -24,7 +24,6 @@ export const fetchArticleById = createAsyncThunk<Article, string | undefined, Th
 
             return response.data
         } catch (e) {
-            console.log(e)
             return rejectWithValue('error')
         }
     }
