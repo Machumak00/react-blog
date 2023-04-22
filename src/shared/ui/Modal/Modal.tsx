@@ -1,8 +1,9 @@
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
-import { type KeyboardEvent, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import { type ReactNode } from 'react'
 import { Portal } from '../Portal/Portal'
 import { Overlay } from '../Overlay/Overlay'
+import { useModal } from 'shared/lib/hooks/useModal/useModal'
 
 interface ModalProps {
     className?: string
@@ -11,8 +12,6 @@ interface ModalProps {
     onClose?: () => void
     lazy?: boolean
 }
-
-const ANIMATION_DELAY = 300
 
 export const Modal = (props: ModalProps) => {
     const {
@@ -23,43 +22,15 @@ export const Modal = (props: ModalProps) => {
         lazy
     } = props
 
-    const [isClosing, setIsClosing] = useState(false)
-    const [isMounted, setIsMounted] = useState(false)
-    const timerRef = useRef<ReturnType<typeof setTimeout>>()
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true)
-            timerRef.current = setTimeout(() => {
-                onClose()
-                setIsClosing(false)
-            }, ANIMATION_DELAY)
-        }
-    }, [onClose])
-
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler()
-        }
-    }, [closeHandler])
-
-    useEffect(() => {
-        if (isOpen) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            window.addEventListener('keydown', onKeyDown)
-
-            setIsMounted(true)
-        }
-
-        return () => {
-            clearTimeout(timerRef.current)
-
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            window.removeEventListener('keydown', onKeyDown)
-        }
-    }, [isOpen, onKeyDown])
+    const {
+        close,
+        isClosing,
+        isMounted
+    } = useModal({
+        animationDelay: 300,
+        onClose,
+        isOpen
+    })
 
     const mods: Mods = {
         [cls.opened]: isOpen,
@@ -73,7 +44,7 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <Overlay onClick={closeHandler}/>
+                <Overlay onClick={close}/>
                 <div className={cls.content}>
                     {children}
                 </div>
