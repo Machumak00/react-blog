@@ -21,7 +21,6 @@ export const Modal = (props: ModalProps) => {
         onClose,
         lazy
     } = props
-
     const {
         close,
         isClosing,
@@ -31,7 +30,6 @@ export const Modal = (props: ModalProps) => {
         onClose,
         isOpen
     })
-
     const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing
