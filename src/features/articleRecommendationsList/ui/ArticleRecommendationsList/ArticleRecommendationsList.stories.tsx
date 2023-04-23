@@ -1,5 +1,5 @@
 import React from 'react'
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { ArticleRecommendationsList } from './ArticleRecommendationsList'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { type Article } from '@/entities/Article'
@@ -10,16 +10,19 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof ArticleRecommendationsList>
+} as Meta<typeof ArticleRecommendationsList>
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />
+const Template: StoryFn<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />
 
 const article: Article = {
     id: '1',
     img: '',
     createdAt: '',
     views: 123,
-    user: { id: '1', username: '123' },
+    user: {
+        id: '1',
+        username: '123'
+    },
     blocks: [],
     type: [],
     title: '123',
@@ -36,9 +39,18 @@ Normal.parameters = {
             method: 'GET',
             status: 200,
             response: [
-                { ...article, id: '1' },
-                { ...article, id: '2' },
-                { ...article, id: '3' }
+                {
+                    ...article,
+                    id: '1'
+                },
+                {
+                    ...article,
+                    id: '2'
+                },
+                {
+                    ...article,
+                    id: '3'
+                }
             ]
         }
     ]

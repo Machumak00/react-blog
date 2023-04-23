@@ -37,5 +37,7 @@
   "Редактировать": "Edit",
   "Создание новой статьи": "Creating new article",
   "Редактирование статьи": "Editing article with ID = {{id}}",
-  "Ваш отзыв": "Your feedback"
+  "Оцените статью": "Rate the article",
+  "Оставьте свой отзыв о статье": "Leave your feedback about the article",
+  "Спасибо за оценку": "Thank you for rating"
 }
