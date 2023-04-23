@@ -1,10 +1,10 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { NotificationButton } from './NotificationButton'
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 
 export default {
-    title: '/NotificationButton',
+    title: 'features/NotificationButton',
     component: NotificationButton
 } as ComponentMeta<typeof NotificationButton>
 

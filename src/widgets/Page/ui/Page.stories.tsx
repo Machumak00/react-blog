@@ -1,7 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { Page } from './Page'
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 
 export default {
     title: 'widgets/Page',

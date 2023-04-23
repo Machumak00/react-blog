@@ -2,7 +2,7 @@ import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { CountrySelect } from './CountrySelect'
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 
 export default {
     title: 'entities/CountrySelect',

@@ -14,8 +14,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
         buildLocales: ''
     }
 
-    config.resolve?.modules?.unshift(paths.src)
-    config.resolve?.extensions?.push('.ts', '.tsx')
+    if (config.resolve) {
+        config.resolve.modules?.unshift(paths.src)
+        config.resolve.extensions?.push('.ts', '.tsx')
+        config.resolve.alias = { '@': path.resolve(__dirname, '..', '..', 'src') }
+    }
 
     if (config.module) {
         const rules = config.module?.rules as RuleSetRule[]

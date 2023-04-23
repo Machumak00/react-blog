@@ -1,7 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { Flex } from './Flex'
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 
 export default {
     title: 'shared/Flex',

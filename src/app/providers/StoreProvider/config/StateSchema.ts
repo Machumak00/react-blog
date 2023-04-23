@@ -1,6 +1,5 @@
-import { type CounterSchema } from 'entities/Counter'
-import { type UserSchema } from 'entities/User'
-import { type LoginSchema } from 'features/AuthByUsername'
+import { type UserSchema } from '@/entities/User'
+import { type LoginSchema } from '@/features/AuthByUsername'
 import {
     type AnyAction,
     type CombinedState,
@@ -9,16 +8,15 @@ import {
     type ReducersMapObject
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
-import { type ArticleDetailsSchema } from 'entities/Article'
-import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
-import { type AddCommentFormSchema } from 'features/AddCommentForm'
-import { type ArticlesPageSchema } from 'pages/ArticlesPage'
-import { type ScrollSaveSchema } from 'features/ScrollSave'
-import { type rtkApi } from 'shared/api/rtkApi'
-import { type ProfileSchema } from 'features/editableProfileCard'
+import { type ArticleDetailsSchema } from '@/entities/Article'
+import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage'
+import { type AddCommentFormSchema } from '@/features/AddCommentForm'
+import { type ArticlesPageSchema } from '@/pages/ArticlesPage'
+import { type ScrollSaveSchema } from '@/features/ScrollSave'
+import { type rtkApi } from '@/shared/api/rtkApi'
+import { type ProfileSchema } from '@/features/editableProfileCard'
 
 export interface StateSchema {
-    counter: CounterSchema
     user: UserSchema
     scrollSave: ScrollSaveSchema
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>

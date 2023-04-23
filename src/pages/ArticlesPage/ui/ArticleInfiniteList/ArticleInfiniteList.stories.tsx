@@ -1,7 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { ArticleInfiniteList } from './ArticleInfiniteList'
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 
 export default {
     title: 'pages/ArticlesPage/ArticleInfiniteList',

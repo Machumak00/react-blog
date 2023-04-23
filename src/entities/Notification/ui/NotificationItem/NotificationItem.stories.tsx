@@ -1,10 +1,10 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { NotificationItem } from './NotificationItem'
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 
 export default {
-    title: '/NotificationItem',
+    title: 'entities/Notification/NotificationItem',
     component: NotificationItem
 } as ComponentMeta<typeof NotificationItem>
 

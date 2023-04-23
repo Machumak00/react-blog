@@ -1,10 +1,10 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { Popover } from './Popover'
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 
 export default {
-    title: '/Popover',
+    title: 'shared/Popover',
     component: Popover
 } as ComponentMeta<typeof Popover>
 
