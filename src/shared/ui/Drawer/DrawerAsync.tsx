@@ -4,7 +4,7 @@ import { Overlay } from '../Overlay/Overlay'
 import { memo, type ReactNode, useCallback, useEffect } from 'react'
 import { useTheme } from '@/app/providers/ThemeProvider'
 import { Portal } from '../Portal/Portal'
-import { useAnimationModules } from '@/shared/lib/components/AnimationProvider'
+import { AnimationProvider, useAnimationModules } from '@/shared/lib/components/AnimationProvider'
 import { VStack } from '../Stack'
 import { Skeleton } from '../Skeleton/Skeleton'
 
@@ -17,7 +17,7 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100
 
-export const DrawerContent = memo((props: DrawerProps) => {
+const DrawerContent = memo((props: DrawerProps) => {
     const {
         Spring,
         Gesture
@@ -115,7 +115,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     )
 })
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = memo((props: DrawerProps) => {
     const { isLoaded } = useAnimationModules()
 
     if (!isLoaded) {
@@ -135,3 +135,11 @@ export const Drawer = memo((props: DrawerProps) => {
 
     return <DrawerContent {...props}/>
 })
+
+export const Drawer = (props: DrawerProps) => {
+    return (
+        <AnimationProvider>
+            <DrawerAsync {...props}/>
+        </AnimationProvider>
+    )
+}
