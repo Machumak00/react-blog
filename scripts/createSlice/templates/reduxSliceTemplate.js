@@ -16,8 +16,8 @@ export const ${sliceName}Slice = createSlice({
     reducers: {
         template: (state, action: PayloadAction<string>) => {
            
-        },
-    },
+        }
+    }
     // extraReducers: (builder) => {
     //     builder
     //         .addCase(, (state) => {
