@@ -55,7 +55,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     {types}
                     <img src={article.img} className={cls.img} alt={article.title}/>
                     {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock}/>
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={cls.textBlock}
+                        />
                     )}
                     <div className={cls.footer}>
                         <AppLink

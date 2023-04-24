@@ -5,7 +5,7 @@ import { CurrencySelect } from './CurrencySelect'
 import '@/app/styles/index.scss'
 
 export default {
-    title: 'entities/CurrencySelect',
+    title: 'entities/Currency/CurrencySelect',
     component: CurrencySelect
 } as ComponentMeta<typeof CurrencySelect>
 

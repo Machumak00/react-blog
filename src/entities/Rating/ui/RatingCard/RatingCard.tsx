@@ -1,4 +1,3 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
 import { memo, useCallback, useState } from 'react'
 import { Card } from '@/shared/ui/Card/Card'
 import { HStack, VStack } from '@/shared/ui/Stack'

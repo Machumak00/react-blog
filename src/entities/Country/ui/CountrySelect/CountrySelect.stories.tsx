@@ -5,7 +5,7 @@ import { CountrySelect } from './CountrySelect'
 import '@/app/styles/index.scss'
 
 export default {
-    title: 'entities/CountrySelect',
+    title: 'entities/Country/CountrySelect',
     component: CountrySelect
 } as ComponentMeta<typeof CountrySelect>
 

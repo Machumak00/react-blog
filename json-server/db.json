@@ -568,18 +568,11 @@
   ],
   "profile-ratings": [
     {
-      "id": "1",
+      "userId": "1",
+      "profileId": "2",
       "rate": 4,
-      "feedback": "Неплохо",
-      "userId": "1",
-      "profileId": "1"
-    },
-    {
-      "id": "2",
-      "rate": 5,
-      "feedback": "Отлично",
-      "userId": "1",
-      "profileId": "2"
+      "feedback": "Ок",
+      "id": 1
     }
   ]
 }

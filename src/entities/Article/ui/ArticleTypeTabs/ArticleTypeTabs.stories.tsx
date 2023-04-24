@@ -4,7 +4,7 @@ import { ArticleTypeTabs } from './ArticleTypeTabs'
 import '@/app/styles/index.scss'
 
 export default {
-    title: 'entities/ArticleTypeTabs',
+    title: 'entities/Article/ArticleTypeTabs',
     component: ArticleTypeTabs
 } as ComponentMeta<typeof ArticleTypeTabs>
 

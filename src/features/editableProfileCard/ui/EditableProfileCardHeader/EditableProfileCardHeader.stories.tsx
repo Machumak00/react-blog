@@ -5,7 +5,7 @@ import '@/app/styles/index.scss'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
-    title: 'features/EditableProfileCardHeader',
+    title: 'features/editableProfileCard/EditableProfileCardHeader',
     component: EditableProfileCardHeader
 } as ComponentMeta<typeof EditableProfileCardHeader>
 

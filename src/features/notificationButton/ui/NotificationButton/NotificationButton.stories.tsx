@@ -4,7 +4,7 @@ import { NotificationButton } from './NotificationButton'
 import '@/app/styles/index.scss'
 
 export default {
-    title: 'features/NotificationButton',
+    title: 'features/notificationButton/NotificationButton',
     component: NotificationButton
 } as ComponentMeta<typeof NotificationButton>
 

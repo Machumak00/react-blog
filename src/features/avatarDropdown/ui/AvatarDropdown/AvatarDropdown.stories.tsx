@@ -1,14 +1,34 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { AvatarDropdown } from './AvatarDropdown'
 import '@/app/styles/index.scss'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { User, UserRole } from '@/entities/User'
+import { StateSchema } from '@/app/providers/StoreProvider'
 
-export default {
+const user: User = {
+    id: '1',
+    roles: [UserRole.ADMIN],
+    username: 'admin'
+}
+
+const initialState: DeepPartial<StateSchema> = {
+    user: { authData: user }
+}
+
+const meta: Meta<typeof AvatarDropdown> = {
     title: 'features/avatarDropdown/AvatarDropdown',
-    component: AvatarDropdown
-} as ComponentMeta<typeof AvatarDropdown>
+    component: AvatarDropdown,
+    decorators: [StoreDecorator(initialState)]
+}
 
-const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />
+export default meta
+type Story = StoryObj<typeof AvatarDropdown>
 
-export const Normal = Template.bind({})
-Normal.args = {}
+export const Normal: Story = {
+    args: {
+        user: {
+            id: '1'
+        }
+    }
+}

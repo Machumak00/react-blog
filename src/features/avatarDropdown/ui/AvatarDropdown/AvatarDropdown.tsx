@@ -3,9 +3,9 @@ import { memo, useCallback } from 'react'
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { Dropdown } from '@/shared/ui/Popups'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { isUserAdmin, isUserManager, type User, userActions } from '@/entities/User'
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface AvatarDropdownProps {
     className?: string
@@ -18,7 +18,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         user
     } = props
     const { t } = useTranslation()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const isAdmin = useSelector(isUserAdmin)
     const isManager = useSelector(isUserManager)
 
@@ -30,7 +30,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     return (
         <Dropdown
-            className={classNames('', {}, [className])}
+            className={className}
             items={[
                 ...(isAdminPanelAvailable
                     ? [{

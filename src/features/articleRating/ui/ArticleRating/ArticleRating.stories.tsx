@@ -2,22 +2,11 @@ import { Meta, StoryObj } from '@storybook/react'
 import ArticleRating from './ArticleRating'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { Article } from '@/entities/Article'
-import { User, UserRole } from '@/entities/User'
+import { User } from '@/entities/User'
 import { StateSchema } from '@/app/providers/StoreProvider'
 
-const meta: Meta<typeof ArticleRating> = {
-    title: 'features/ArticleRating',
-    component: ArticleRating
-}
-
-export default meta
-type Story = StoryObj<typeof ArticleRating>
-
 const user: User = {
-    id: '1',
-    username: 'admin',
-    roles: [UserRole.ADMIN],
-    avatar: ''
+    id: '1'
 }
 
 const article: Article = {
@@ -37,11 +26,39 @@ const initialState: DeepPartial<StateSchema> = {
     articleDetails: { data: article }
 }
 
+const meta: Meta<typeof ArticleRating> = {
+    title: 'features/articleRating/ArticleRating',
+    component: ArticleRating,
+    decorators: [StoreDecorator(initialState)]
+}
+
+export default meta
+type Story = StoryObj<typeof ArticleRating>
+
 export const Normal: Story = {
+    args: {
+        articleId: '1'
+    },
+    parameters: {
+        mockData: [
+            {
+                url: __API__ + `/article-ratings?userId=${user.id}&articleId=${article.id}`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    {
+                        rate: 4
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export const WithoutRate: Story = {
     args: {
         articleId: article.id
     },
-    decorators: [StoreDecorator(initialState)],
     parameters: {
         mockData: [
             {
@@ -59,9 +76,7 @@ export const Normal: Story = {
                     rate: 3,
                     userId: '1'
                 },
-                response: [
-                    {}
-                ]
+                response: []
             }
         ]
     }

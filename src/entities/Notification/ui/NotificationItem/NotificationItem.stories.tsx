@@ -1,14 +1,22 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { NotificationItem } from './NotificationItem'
 import '@/app/styles/index.scss'
 
-export default {
+const meta: Meta<typeof NotificationItem> = {
     title: 'entities/Notification/NotificationItem',
     component: NotificationItem
-} as ComponentMeta<typeof NotificationItem>
+}
 
-const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />
+export default meta
+type Story = StoryObj<typeof NotificationItem>
 
-export const Normal = Template.bind({})
-Normal.args = {}
+export const Normal: Story = {
+    args: {
+        item: {
+            id: '1',
+            title: 'Уведомление',
+            description: 'Описание уведомления'
+        }
+    }
+}
