@@ -3,7 +3,7 @@ import { componentRender } from '@/shared/lib/tests/componentRender/componentRen
 import { type Profile } from '@/entities/Profile'
 import { Currency } from '@/entities/Currency'
 import { Country } from '@/entities/Country'
-import { profileReducer } from '../../model/slice/profileSlice'
+import { profileReducer } from '../../model/slices/profileSlice'
 import userEvent from '@testing-library/user-event'
 import { screen } from '@testing-library/react'
 import { $api } from '@/shared/api/api'

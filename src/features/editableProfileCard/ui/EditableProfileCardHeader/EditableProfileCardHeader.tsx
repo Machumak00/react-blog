@@ -9,7 +9,7 @@ import { Text } from '@/shared/ui/Text/Text'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
-import { profileActions } from '../../model/slice/profileSlice'
+import { profileActions } from '../../model/slices/profileSlice'
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
 
 interface EditableProfileCardHeaderProps {

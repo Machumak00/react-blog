@@ -14,7 +14,7 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import { ProfileCard } from '@/entities/Profile'
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
-import { profileActions, profileReducer } from '../../model/slice/profileSlice'
+import { profileActions, profileReducer } from '../../model/slices/profileSlice'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {
     EditableProfileCardHeader

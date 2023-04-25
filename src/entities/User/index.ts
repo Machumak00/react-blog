@@ -1,4 +1,4 @@
-export { userActions, userReducer } from './model/slice/userSlice'
+export { userActions, userReducer } from './model/slices/userSlice'
 export type { User, UserSchema } from './model/types/user'
 export { UserRole } from './model/consts/consts'
 export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData'

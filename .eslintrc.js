@@ -108,7 +108,8 @@ module.exports = {
         'machumak-plugin/public-api-imports': [
             'error',
             {
-                alias: '@'
+                alias: '@',
+                testFilePatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
             }
         ],
         '@typescript-eslint/consistent-type-imports': 'off'
