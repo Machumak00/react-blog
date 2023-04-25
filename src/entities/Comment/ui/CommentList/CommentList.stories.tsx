@@ -1,7 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { CommentList } from './CommentList'
-import '@/app/styles/index.scss'
 
 export default {
     title: 'entities/Comment/CommentList',

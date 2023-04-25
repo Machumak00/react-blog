@@ -1,7 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { ArticleViewSelector } from './ArticleViewSelector'
-import '@/app/styles/index.scss'
 
 export default {
     title: 'entities/Article/ArticleViewSelector',

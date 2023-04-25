@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import { AvatarDropdown } from './AvatarDropdown'
-import '@/app/styles/index.scss'
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { User, UserRole } from '@/entities/User'
 import { StateSchema } from '@/app/providers/StoreProvider'

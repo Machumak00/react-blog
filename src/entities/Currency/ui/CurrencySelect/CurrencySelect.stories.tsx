@@ -2,7 +2,6 @@ import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { CurrencySelect } from './CurrencySelect'
-import '@/app/styles/index.scss'
 
 export default {
     title: 'entities/Currency/CurrencySelect',

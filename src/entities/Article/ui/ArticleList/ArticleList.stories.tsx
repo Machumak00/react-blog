@@ -1,7 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { ArticleList } from './ArticleList'
-import '@/app/styles/index.scss'
+
 import { type Article } from '../../model/types/article'
 
 export default {
@@ -60,7 +60,7 @@ const article = {
         {
             id: '3',
             type: 'CODE',
-            code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+            code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);'
         },
         {
             id: '7',

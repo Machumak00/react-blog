@@ -1,4 +1,3 @@
-import '@/app/styles/index.scss'
 import { type Story } from '@storybook/react'
 import { type StateSchema, StoreProvider } from '@/app/providers/StoreProvider'
 import { loginReducer } from '@/features/AuthByUsername/testing'

@@ -112,6 +112,13 @@ module.exports = {
                 testFilePatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
             }
         ],
+        'machumak-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing']
+            }
+        ],
         '@typescript-eslint/consistent-type-imports': 'off'
     }
 }

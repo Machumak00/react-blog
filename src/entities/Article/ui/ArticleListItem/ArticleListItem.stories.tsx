@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import { ArticleListItem } from './ArticleListItem'
-import '@/app/styles/index.scss'
 import { type Article } from '../../model/types/article'
 
 const meta: Meta<typeof ArticleListItem> = {

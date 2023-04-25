@@ -1,7 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { Card } from './Card'
-import '@/app/styles/index.scss'
+
 import { Text } from '../Text/Text'
 
 export default {

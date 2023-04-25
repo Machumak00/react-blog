@@ -1,7 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import ArticlesPage from './ArticlesPage'
-import '@/app/styles/index.scss'
 
 export default {
     title: 'pages/ArticlesPage/ArticlesPage',

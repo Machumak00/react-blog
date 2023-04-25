@@ -1,7 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { ArticleDetailsComments } from './ArticleDetailsComments'
-import '@/app/styles/index.scss'
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {

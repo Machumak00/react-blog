@@ -1,6 +1,5 @@
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/app/providers/ThemeProvider'
 import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator'
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 

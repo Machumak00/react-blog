@@ -1,7 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { Popover } from './Popover'
-import '@/app/styles/index.scss'
 
 export default {
     title: 'shared/Popover',

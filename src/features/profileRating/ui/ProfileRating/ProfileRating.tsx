@@ -4,7 +4,6 @@ import { RatingCard } from '@/entities/Rating'
 import { useGetProfileRating, useRateProfile } from '../../api/profileRatingApi'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
-import { getProfileData } from '@/features/editableProfileCard'
 
 export interface ArticleRatingProps {
     className?: string
@@ -18,7 +17,6 @@ const ProfileRating = memo((props: ArticleRatingProps) => {
     } = props
     const { t } = useTranslation()
     const userData = useSelector(getUserAuthData)
-    const profileData = useSelector(getProfileData)
 
     const {
         data,
@@ -51,7 +49,7 @@ const ProfileRating = memo((props: ArticleRatingProps) => {
         handleRateProfile(starsCount)
     }, [handleRateProfile])
 
-    if (!profileData || isLoading || userData?.id === profileId) {
+    if (isLoading || userData?.id === profileId) {
         return null
     }
 

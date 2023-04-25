@@ -2,7 +2,7 @@ import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { Avatar } from './Avatar'
-import '@/app/styles/index.scss'
+
 import AvatarImg from './avatar.jpg'
 
 export default {
