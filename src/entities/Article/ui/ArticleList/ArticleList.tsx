@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { type HTMLAttributeAnchorTarget, memo } from 'react'
 import { type Article, type ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
-import { Text, TextSize } from '@/shared/ui/Text/Text'
-import { Loader } from '@/shared/ui/Loader/Loader'
+import { Text, TextSize } from '@/shared/ui/Text'
+import { Loader } from '@/shared/ui/Loader'
 
 interface ArticleListProps {
     className?: string

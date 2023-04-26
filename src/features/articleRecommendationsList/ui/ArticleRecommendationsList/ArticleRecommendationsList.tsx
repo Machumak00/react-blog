@@ -1,10 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
-import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text'
 import { ArticleList } from '@/entities/Article'
 import { HStack, VStack } from '@/shared/ui/Stack'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi'
 
 interface ArticleRecommendationsListProps {

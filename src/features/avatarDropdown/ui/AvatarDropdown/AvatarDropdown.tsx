@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { Avatar } from '@/shared/ui/Avatar'
 import { Dropdown } from '@/shared/ui/Popups'
 import { useSelector } from 'react-redux'
 import { isUserAdmin, isUserManager, type User, userActions } from '@/entities/User'
