@@ -36,7 +36,8 @@ module.exports = {
         'react-hooks',
         '@typescript-eslint',
         'i18next',
-        'machumak-plugin'
+        'machumak-plugin',
+        'unused-imports'
     ],
     rules: {
         indent: 'off',
@@ -58,6 +59,7 @@ module.exports = {
                 ]
             }
         ],
+        'unused-imports/no-unused-imports': 'error',
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
         'react/react-in-jsx-scope': 'off',
@@ -119,6 +121,23 @@ module.exports = {
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing']
             }
         ],
-        '@typescript-eslint/consistent-type-imports': 'off'
+        '@typescript-eslint/consistent-type-imports': 'off',
+        'import/order': [
+            'error',
+            {
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'external',
+                        position: 'after'
+                    }
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false
+                }
+            }
+        ]
     }
 }

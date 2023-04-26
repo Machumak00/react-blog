@@ -1,5 +1,3 @@
-import { type UserSchema } from '@/entities/User'
-import { type LoginSchema } from '@/features/AuthByUsername'
 import {
     type AnyAction,
     type CombinedState,
@@ -8,13 +6,16 @@ import {
     type ReducersMapObject
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
+
 import { type ArticleDetailsSchema } from '@/entities/Article'
-import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage'
+import { type UserSchema } from '@/entities/User'
 import { type AddCommentFormSchema } from '@/features/AddCommentForm'
-import { type ArticlesPageSchema } from '@/pages/ArticlesPage'
+import { type LoginSchema } from '@/features/AuthByUsername'
 import { type ScrollSaveSchema } from '@/features/ScrollSave'
-import { type rtkApi } from '@/shared/api/rtkApi'
 import { type ProfileSchema } from '@/features/editableProfileCard'
+import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage'
+import { type ArticlesPageSchema } from '@/pages/ArticlesPage'
+import { type rtkApi } from '@/shared/api/rtkApi'
 
 export interface StateSchema {
     user: UserSchema

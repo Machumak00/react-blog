@@ -1,12 +1,15 @@
-import cls from './SidebarItem.module.scss'
-import { useTranslation } from 'react-i18next'
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink'
 import { memo } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { type SidebarItemType } from '../../model/types/sidebar'
-import { HStack } from '@/shared/ui/Stack'
+
 import { getUserAuthData } from '@/entities/User'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink'
+import { HStack } from '@/shared/ui/Stack'
+
+import { type SidebarItemType } from '../../model/types/sidebar'
+
+import cls from './SidebarItem.module.scss'
 
 interface SidebarItemProps {
     item: SidebarItemType

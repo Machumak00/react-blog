@@ -1,9 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react'
-import ArticleRating from './ArticleRating'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+
+import { StateSchema } from '@/app/providers/StoreProvider'
 import { Article } from '@/entities/Article'
 import { User } from '@/entities/User'
-import { StateSchema } from '@/app/providers/StoreProvider'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+
+import ArticleRating from './ArticleRating'
 
 const user: User = {
     id: '1'

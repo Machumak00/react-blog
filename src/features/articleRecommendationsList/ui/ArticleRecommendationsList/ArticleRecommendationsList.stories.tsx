@@ -1,8 +1,10 @@
-import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
-import { ArticleRecommendationsList } from './ArticleRecommendationsList'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import React from 'react'
+
 import { type Article } from '@/entities/Article'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+
+import { ArticleRecommendationsList } from './ArticleRecommendationsList'
 
 export default {
     title: 'features/articleRecommendationsList/ArticleRecommendationsList',

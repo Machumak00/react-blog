@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { AvatarDropdown } from './AvatarDropdown'
-
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
-import { User, UserRole } from '@/entities/User'
 import { StateSchema } from '@/app/providers/StoreProvider'
+import { User, UserRole } from '@/entities/User'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+
+import { AvatarDropdown } from './AvatarDropdown'
 
 const user: User = {
     id: '1',

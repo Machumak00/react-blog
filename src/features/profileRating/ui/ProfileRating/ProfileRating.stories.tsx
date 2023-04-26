@@ -1,9 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react'
-import ProfileRating from './ProfileRating'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
-import { User, UserRole } from '@/entities/User'
+
 import { StateSchema } from '@/app/providers/StoreProvider'
 import { Profile } from '@/entities/Profile'
+import { User, UserRole } from '@/entities/User'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+
+import ProfileRating from './ProfileRating'
 
 const meta: Meta<typeof ProfileRating> = {
     title: 'features/profileRating/ProfileRating',

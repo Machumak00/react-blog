@@ -1,10 +1,13 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './NotificationList.module.scss'
 import { memo } from 'react'
-import { useGetNotifications } from '../../api/notificationApi'
-import { VStack } from '@/shared/ui/Stack'
-import { NotificationItem } from '../NotificationItem/NotificationItem'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Skeleton } from '@/shared/ui/Skeleton'
+import { VStack } from '@/shared/ui/Stack'
+
+import { useGetNotifications } from '../../api/notificationApi'
+import { NotificationItem } from '../NotificationItem/NotificationItem'
+
+import cls from './NotificationList.module.scss'
 
 interface NotificationListProps {
     className?: string

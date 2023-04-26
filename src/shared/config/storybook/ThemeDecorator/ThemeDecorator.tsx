@@ -1,4 +1,5 @@
 import { StoryFn } from '@storybook/react'
+
 // eslint-disable-next-line machumak-plugin/layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider'
 import { Theme } from '@/shared/const/theme'
