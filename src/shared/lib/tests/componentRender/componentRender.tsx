@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router-dom'
 
 import { type StateSchema, StoreProvider } from '@/app/providers/StoreProvider'
 import i18nForTests from '@/shared/config/i18n/i18nForTests'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteMain } from '@/shared/const/router'
 
 export interface ComponentRenderOptions {
     route?: string
@@ -16,7 +16,7 @@ export interface ComponentRenderOptions {
 
 export function componentRender (component: ReactNode, options: ComponentRenderOptions = {}) {
     const {
-        route = RoutePath.main,
+        route = getRouteMain(),
         initialState,
         asyncReducers
     } = options
