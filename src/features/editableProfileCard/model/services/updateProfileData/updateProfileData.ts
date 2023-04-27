@@ -10,7 +10,11 @@ import { validateProfileData } from '../validateProfileData/validateProfileData'
 export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileError[]>>(
     'profile/updateProfileData',
     async (_, thunkAPI) => {
-        const { extra, rejectWithValue, getState } = thunkAPI
+        const {
+            extra,
+            rejectWithValue,
+            getState
+        } = thunkAPI
 
         const formData = getProfileForm(getState())
 
@@ -27,12 +31,11 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Val
             )
 
             if (!response.data) {
-                throw new Error()
+                throw new Error('Response data not found')
             }
 
             return response.data
         } catch (e) {
-            console.log(e)
             return rejectWithValue([ValidateProfileError.SERVER_ERROR])
         }
     }

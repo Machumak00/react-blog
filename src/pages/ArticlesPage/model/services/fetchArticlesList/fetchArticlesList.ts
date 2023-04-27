@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { type ThunkConfig } from '@/app/providers/StoreProvider'
 import { type Article, ArticleType } from '@/entities/Article'
+import { useErrorMessage } from '@/shared/lib/hooks/useErrorMessage/useErrorMessage'
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams'
 
 import {
@@ -53,12 +54,14 @@ export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListPr
             })
 
             if (!response.data) {
-                throw new Error()
+                throw new Error('Response data not found')
             }
 
             return response.data
         } catch (e) {
-            return rejectWithValue('error')
+            const message = useErrorMessage(e)
+
+            return rejectWithValue(message)
         }
     }
 )

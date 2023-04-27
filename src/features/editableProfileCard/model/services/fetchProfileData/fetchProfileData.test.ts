@@ -1,11 +1,12 @@
-
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
+import { Profile } from '@/entities/Profile'
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 
 import { fetchProfileData } from './fetchProfileData'
 
-const data = {
+const data: Profile = {
+    id: '1',
     username: 'admin',
     age: 23,
     country: Country.Russia,
@@ -15,12 +16,20 @@ const data = {
     city: 'Perm'
 }
 
+const profileDataProps = {
+    profileId: '1',
+    translations: {
+        profileNotFound: 'Профиль не найден',
+        responseDataNotFound: 'Не удалось загрузить данные профиля'
+    }
+}
+
 describe('fetchProfileData.test', () => {
     test('should return fulfilled', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData)
 
         thunk.api.get.mockReturnValue(Promise.resolve({ data }))
-        const result = await thunk.callThunk('1')
+        const result = await thunk.callThunk(profileDataProps)
 
         expect(thunk.api.get).toHaveBeenCalled()
         expect(result.meta.requestStatus).toBe('fulfilled')
@@ -31,8 +40,9 @@ describe('fetchProfileData.test', () => {
         const thunk = new TestAsyncThunk(fetchProfileData)
 
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }))
-        const result = await thunk.callThunk('1')
+        const result = await thunk.callThunk(profileDataProps)
 
         expect(result.meta.requestStatus).toBe('rejected')
+        expect(result.payload).toBe('Не удалось загрузить данные профиля')
     })
 })

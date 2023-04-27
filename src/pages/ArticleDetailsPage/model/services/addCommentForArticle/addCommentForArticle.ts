@@ -4,10 +4,9 @@ import { type ThunkConfig } from '@/app/providers/StoreProvider'
 import { getArticleDetailsData } from '@/entities/Article'
 import { type Comment } from '@/entities/Comment'
 import { getUserAuthData } from '@/entities/User'
+import { useErrorMessage } from '@/shared/lib/hooks/useErrorMessage/useErrorMessage'
 
-import {
-    fetchCommentsByArticleId
-} from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { fetchCommentsByArticleId } from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
     'articleDetailsPage/addCommentForArticle',
@@ -34,14 +33,16 @@ export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfi
             })
 
             if (!response.data) {
-                throw new Error()
+                throw new Error('Response data not found')
             }
 
             dispatch(fetchCommentsByArticleId(article.id))
 
             return response.data
         } catch (e) {
-            return rejectWithValue('error')
+            const message = useErrorMessage(e)
+
+            return rejectWithValue(message)
         }
     }
 )

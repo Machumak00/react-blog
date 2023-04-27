@@ -53,7 +53,13 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     }
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData(id))
+        dispatch(fetchProfileData({
+            profileId: id,
+            translations: {
+                profileNotFound: t('Профиль не найден'),
+                responseDataNotFound: t('Не удалось загрузить данные профиля')
+            }
+        }))
     })
 
     const onChangeFirstname = useCallback((value?: string) => {

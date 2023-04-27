@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { type ThunkConfig } from '@/app/providers/StoreProvider'
 import { type Article } from '@/entities/Article'
+import { useErrorMessage } from '@/shared/lib/hooks/useErrorMessage/useErrorMessage'
 
 export const fetchArticleRecommendations = createAsyncThunk<Article[], void, ThunkConfig<string>>(
     'articleDetailsPage/fetchArticleRecommendations',
@@ -19,12 +20,14 @@ export const fetchArticleRecommendations = createAsyncThunk<Article[], void, Thu
             })
 
             if (!response.data) {
-                throw new Error()
+                throw new Error('Response data not found')
             }
 
             return response.data
         } catch (e) {
-            return rejectWithValue('error')
+            const message = useErrorMessage(e)
+
+            return rejectWithValue(message)
         }
     }
 )

@@ -18,5 +18,6 @@
   "Некорректный возраст": "Incorrect age",
   "Нет данных": "No data",
   "Имя и фамилия обязательны": "Firstname and lastname are required",
-  "Профиль не найден": "Profile not found"
+  "Профиль не найден": "Profile not found",
+  "Не удалось загрузить данные профиля": "Failed to load profile data"
 }

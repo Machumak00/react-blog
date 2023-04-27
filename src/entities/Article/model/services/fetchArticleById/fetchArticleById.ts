@@ -1,13 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { type ThunkConfig } from '@/app/providers/StoreProvider'
+import { useErrorMessage } from '@/shared/lib/hooks/useErrorMessage/useErrorMessage'
 
 import { type Article } from '../../types/article'
 
 export const fetchArticleById = createAsyncThunk<Article, string | undefined, ThunkConfig<string>>(
     'articleDetails/fetchArticleById',
     async (articleId, thunkAPI) => {
-        const { extra, rejectWithValue } = thunkAPI
+        const {
+            extra,
+            rejectWithValue
+        } = thunkAPI
 
         try {
             if (!articleId) {
@@ -21,12 +25,14 @@ export const fetchArticleById = createAsyncThunk<Article, string | undefined, Th
             })
 
             if (!response.data) {
-                throw new Error()
+                throw new Error('Response data not found')
             }
 
             return response.data
         } catch (e) {
-            return rejectWithValue('error')
+            const message = useErrorMessage(e)
+
+            return rejectWithValue(message)
         }
     }
 )
