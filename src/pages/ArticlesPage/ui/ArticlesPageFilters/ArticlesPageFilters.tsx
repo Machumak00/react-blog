@@ -2,14 +2,10 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
-import {
-    type ArticleSortField,
-    ArticleSortSelector,
-    type ArticleType,
-    ArticleTypeTabs,
-    type ArticleView,
-    ArticleViewSelector
-} from '@/entities/Article'
+import type { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article'
+import { ArticleSortSelector } from '@/features/articleSortSelector'
+import { ArticleTypeTabs } from '@/features/articleTypeTabs'
+import { ArticleViewSelector } from '@/features/articleViewSelector'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'

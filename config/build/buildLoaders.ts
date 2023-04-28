@@ -7,8 +7,14 @@ import { type BuildOptions } from './types/config'
 export function buildLoaders (options: BuildOptions): RuleSetRule[] {
     const { isDev } = options
 
-    const codeBabelLoader = buildBabelLoader({ isTsx: false })
-    const tsxCodeBabelLoader = buildBabelLoader({ isTsx: true })
+    const codeBabelLoader = buildBabelLoader({
+        isTsx: false,
+        isDev
+    })
+    const tsxCodeBabelLoader = buildBabelLoader({
+        isTsx: true,
+        isDev
+    })
 
     const cssLoader = buildCssLoader(isDev)
 
