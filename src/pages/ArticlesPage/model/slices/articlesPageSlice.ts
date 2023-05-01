@@ -1,10 +1,9 @@
 import { type ActionReducerMapBuilder, createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 import { type StateSchema } from '@/app/providers/StoreProvider'
-import { type Article, ArticleType, type ArticleView } from '@/entities/Article'
-import { ArticleSortField } from '@/entities/Article'
+import { type Article, ArticleSortField, ArticleType, type ArticleView } from '@/entities/Article'
 import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage'
-import { type SortOrder } from '@/shared/types'
+import { type SortOrder } from '@/shared/types/sort'
 
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList'
 import { type ArticlesPageSchema } from '../types/articlesPageSchema'

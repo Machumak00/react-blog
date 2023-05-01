@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+import 'isomorphic-fetch'
+
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage'
 
 export const rtkApi = createApi({
@@ -16,7 +18,5 @@ export const rtkApi = createApi({
             return headers
         }
     }),
-    endpoints: (builder) => ({
-
-    })
+    endpoints: (builder) => ({})
 })
