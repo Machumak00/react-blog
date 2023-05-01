@@ -1,14 +1,15 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { AppImage } from './AppImage'
-import 'app/styles/index.scss'
 
-export default {
-    title: '/AppImage',
+const meta: Meta<typeof AppImage> = {
+    title: 'shared/AppImage',
     component: AppImage
-} as ComponentMeta<typeof AppImage>
+}
 
-const Template: ComponentStory<typeof AppImage> = (args) => <AppImage {...args} />
+export default meta
+type Story = StoryObj<typeof AppImage>
 
-export const Normal = Template.bind({})
-Normal.args = {}
+export const Normal: Story = {
+    args: {}
+}
