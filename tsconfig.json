@@ -13,12 +13,19 @@
     "baseUrl": ".",
     "strict": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": [
+    "./config",
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ]
 }

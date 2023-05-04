@@ -18,10 +18,7 @@ module.exports = {
         {
             files: [
                 '**/src/**/*.test.{ts,tsx}'
-            ],
-            rules: {
-                'i18next/no-literal-string': 'off'
-            }
+            ]
         }
     ],
     parserOptions: {
@@ -29,7 +26,8 @@ module.exports = {
         sourceType: 'module',
         project: [
             'tsconfig.json'
-        ]
+        ],
+        createDefaultProgram: true
     },
     plugins: [
         'react',
@@ -138,6 +136,8 @@ module.exports = {
                     caseInsensitive: false
                 }
             }
-        ]
+        ],
+        '@typescript-eslint/no-namespace': 'off',
+        '@typescript-eslint/method-signature-style': 'off'
     }
 }
