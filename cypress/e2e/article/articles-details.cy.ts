@@ -1,6 +1,6 @@
-let currentArticleId = ''
-
 describe('Пользователь заходит на страницу статьи', () => {
+    let currentArticleId = ''
+
     beforeEach(() => {
         cy.login()
         cy.createArticle().then(article => {

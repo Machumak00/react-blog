@@ -28,12 +28,21 @@ export const removeArticle = (articleId: string) => {
     })
 }
 
+export const search = (searchQuery: string = 'test_article') => {
+    cy.getByTestId('ArticlesPageFilters.Search').clear()
+    cy.getByTestId('ArticlesPageFilters.Search').type(searchQuery)
+}
+
 declare global {
     namespace Cypress {
         interface Chainable {
             createArticle (article?: Article): Chainable<Article>
 
             removeArticle (articleId: string): Chainable<void>
+
+            search (searchQuery: string): Chainable<void>
+
+            sort (sort: string, order: string): Chainable<void>
         }
     }
 }

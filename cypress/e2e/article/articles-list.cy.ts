@@ -9,9 +9,8 @@ describe('Пользователь заходит на страницу со с�
         cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3)
     })
     it('И вводит в поиск', () => {
-        // TODO
-    })
-    it('И сортирует по названию', () => {
-        // TODO
+        cy.search('python')
+        cy.getByTestId('ArticleList').should('exist')
+        cy.getByTestId('ArticleListItem').should('have.length', 1)
     })
 })

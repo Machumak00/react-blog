@@ -59,7 +59,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <Text text={article.user.username} className={cls.username}/>
                         <Text text={article.createdAt} className={cls.date}/>
                     </div>
-                    <Text title={article.title} className={cls.title}/>
+                    <Text
+                        data-testid={'ArticleListItem.Title'}
+                        title={article.title}
+                        className={cls.title}
+                    />
                     {types}
                     <AppImage
                         fallback={<Skeleton width={'100%'} height={250}/>}
