@@ -138,6 +138,7 @@ module.exports = {
             }
         ],
         '@typescript-eslint/no-namespace': 'off',
-        '@typescript-eslint/method-signature-style': 'off'
+        '@typescript-eslint/method-signature-style': 'off',
+        '@typescript-eslint/restrict-template-expressions': 'off'
     }
 }

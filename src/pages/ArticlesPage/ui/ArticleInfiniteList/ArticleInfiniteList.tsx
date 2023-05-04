@@ -32,6 +32,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
 
     return (
         <ArticleList
+            data-testid={'ArticleInfiniteList'}
             isLoading={isLoading}
             view={view}
             articles={articles}
