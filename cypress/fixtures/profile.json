@@ -1,0 +1,11 @@
+{
+  "id": "1",
+  "firstname": "Админ",
+  "lastname": "Админов",
+  "age": 23,
+  "currency": "RUB",
+  "country": "Russia",
+  "city": "Perm",
+  "username": "admin",
+  "avatar": "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
+}
