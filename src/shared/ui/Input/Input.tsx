@@ -1,17 +1,27 @@
-import { type ChangeEvent, type InputHTMLAttributes, memo, type MutableRefObject, useEffect, useRef } from 'react'
+import {
+    type ChangeEvent,
+    type InputHTMLAttributes,
+    memo,
+    type MutableRefObject,
+    useEffect,
+    useRef,
+} from 'react';
 
-import { classNames, type Mods } from '@/shared/lib/classNames/classNames'
+import { classNames, type Mods } from '@/shared/lib/classNames/classNames';
 
-import cls from './Input.module.scss'
+import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
-    className?: string
-    value?: string | number
-    onChange?: (value: string) => void
-    autofocus?: boolean
-    readonly?: boolean
+    className?: string;
+    value?: string | number;
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -24,30 +34,28 @@ export const Input = memo((props: InputProps) => {
         autofocus,
         readonly,
         ...otherProps
-    } = props
+    } = props;
 
-    const ref = useRef() as MutableRefObject<HTMLInputElement>
+    const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
     useEffect(() => {
         if (autofocus) {
-            ref.current.focus()
+            ref.current.focus();
         }
-    }, [autofocus])
+    }, [autofocus]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value)
-    }
+        onChange?.(e.target.value);
+    };
 
     const mods: Mods = {
-        [cls.readonly]: readonly
-    }
+        [cls.readonly]: readonly,
+    };
 
     return (
         <div className={classNames(cls.InputWrapper, mods, [className])}>
             {placeholder && (
-                <div className={cls.placeholder}>
-                    {`${placeholder}>`}
-                </div>
+                <div className={cls.placeholder}>{`${placeholder}>`}</div>
             )}
             <div>
                 <input
@@ -61,5 +69,5 @@ export const Input = memo((props: InputProps) => {
                 />
             </div>
         </div>
-    )
-})
+    );
+});

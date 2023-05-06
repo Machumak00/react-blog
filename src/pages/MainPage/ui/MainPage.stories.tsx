@@ -1,26 +1,26 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import React from 'react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
+import React from 'react';
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
-import MainPage from './MainPage'
+import MainPage from './MainPage';
 
 export default {
     title: 'pages/MainPage',
     component: MainPage,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
-} as ComponentMeta<typeof MainPage>
+    decorators: [StoreDecorator({})],
+} as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = () => <MainPage />
+const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
-export const Light = Template.bind({})
-Light.args = {}
+export const Light = Template.bind({});
+Light.args = {};
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

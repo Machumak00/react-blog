@@ -7,38 +7,38 @@
 
 Запустить сторибук можно командой:
 
-- `npm run storybook`
+-   `npm run storybook`
 
 Подробнее о [Storybook](/docs/storybook.md)
 
 Пример:
 
 ```typescript jsx
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from "@storybook/react";
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/shared/const/theme";
 
-import { Button, ButtonSize, ButtonTheme } from './Button'
+import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 const meta: Meta<typeof Button> = {
-    title: 'features/avatarDropdown/AvatarDropdown',
-    component: Button
-}
+    title: "features/avatarDropdown/AvatarDropdown",
+    component: Button,
+};
 
-export default meta
-type Story = StoryObj<typeof Button>
+export default meta;
+type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
     args: {
-        children: 'Text'
-    }
-}
+        children: "Text",
+    },
+};
 
 export const Clear: Story = {
     args: {
-        children: 'Text',
-        theme: ButtonTheme.CLEAR
-    }
-}
+        children: "Text",
+        theme: ButtonTheme.CLEAR,
+    },
+};
 ```

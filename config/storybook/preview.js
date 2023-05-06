@@ -1,43 +1,43 @@
-import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator'
-import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator'
-import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
+import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator/RouteDecorator";
+import { StyleDecorator } from "@/shared/config/storybook/StyleDecorator/StyleDecorator";
+import { SuspenseDecorator } from "@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/shared/const/theme";
 
 export const parameters = {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
         matchers: {
             color: /(background|color)$/i,
-            date: /Date$/
-        }
+            date: /Date$/,
+        },
     },
-    layout: 'fullscreen',
+    layout: "fullscreen",
     themes: {
-        default: 'light',
+        default: "light",
         list: [
             {
-                name: 'light',
+                name: "light",
                 class: Theme.LIGHT,
-                color: '#ffffff'
+                color: "#ffffff",
             },
             {
-                name: 'dark',
+                name: "dark",
                 class: Theme.DARK,
-                color: '#000000'
+                color: "#000000",
             },
             {
-                name: 'pink',
+                name: "pink",
                 class: Theme.PINK,
-                color: '#fc38c8'
-            }
-        ]
-    }
-}
+                color: "#fc38c8",
+            },
+        ],
+    },
+};
 
 export const decorators = [
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT),
     RouteDecorator,
-    SuspenseDecorator
-]
+    SuspenseDecorator,
+];

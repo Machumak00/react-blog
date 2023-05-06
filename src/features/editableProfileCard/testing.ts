@@ -1,1 +1,1 @@
-export { profileReducer } from './model/slices/profileSlice'
+export { profileReducer } from './model/slices/profileSlice';

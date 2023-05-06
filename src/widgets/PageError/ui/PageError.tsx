@@ -1,22 +1,22 @@
-import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button } from '@/shared/ui/Button'
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 
-import cls from './PageError.module.scss'
+import cls from './PageError.module.scss';
 
 interface PageErrorProps {
-    className?: string
+    className?: string;
 }
 
 export const PageError = memo(({ className }: PageErrorProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
     const reloadPage = () => {
-        location.reload()
-    }
+        location.reload();
+    };
 
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
@@ -25,9 +25,7 @@ export const PageError = memo(({ className }: PageErrorProps) => {
                 align={TextAlign.CENTER}
                 theme={TextTheme.PRIMARY}
             />
-            <Button onClick={reloadPage}>
-                {t('Обновить страницу')}
-            </Button>
+            <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
         </div>
-    )
-})
+    );
+});

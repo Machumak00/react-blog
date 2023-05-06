@@ -1,63 +1,68 @@
-import { type HTMLAttributeAnchorTarget, memo } from 'react'
-import { useTranslation } from 'react-i18next'
+import { type HTMLAttributeAnchorTarget, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
-import { getRouteArticleDetails } from '@/shared/const/router'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { AppImage } from '@/shared/ui/AppImage'
-import { AppLink } from '@/shared/ui/AppLink'
-import { Avatar } from '@/shared/ui/Avatar'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
-import { Card } from '@/shared/ui/Card'
-import { Icon } from '@/shared/ui/Icon'
-import { Skeleton } from '@/shared/ui/Skeleton'
-import { Text } from '@/shared/ui/Text'
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Card } from '@/shared/ui/Card';
+import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Text } from '@/shared/ui/Text';
 
-import { ArticleBlockType } from '../../model/consts/consts'
-import { type Article, type ArticleTextBlock, type ArticleView } from '../../model/types/article'
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { ArticleBlockType } from '../../model/consts/consts';
+import {
+    type Article,
+    type ArticleTextBlock,
+    type ArticleView,
+} from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
-import cls from './ArticleListItem.module.scss'
+import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
-    className?: string
-    article: Article
-    view: ArticleView
-    target?: HTMLAttributeAnchorTarget
+    className?: string;
+    article: Article;
+    view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        className,
-        view,
-        article,
-        target
-    } = props
-    const { t } = useTranslation()
+    const { className, view, article, target } = props;
+    const { t } = useTranslation();
 
-    const types = <Text text={article.type.join(', ')} className={cls.types}/>
+    const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
         <>
-            <Text text={String(article.views)} className={cls.views}/>
-            <Icon Svg={EyeIcon}/>
+            <Text text={String(article.views)} className={cls.views} />
+            <Icon Svg={EyeIcon} />
         </>
-    )
+    );
 
     if (view === 'big') {
         const textBlock = article.blocks.find(
-            block => block.type === ArticleBlockType.TEXT
-        ) as ArticleTextBlock
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
 
         return (
             <div
                 data-testid={'ArticleListItem'}
-                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                className={classNames(cls.ArticleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
             >
                 <Card>
                     <div className={cls.header}>
-                        <Avatar size={30} src={article.user.avatar}/>
-                        <Text text={article.user.username} className={cls.username}/>
-                        <Text text={article.createdAt} className={cls.date}/>
+                        <Avatar size={30} src={article.user.avatar} />
+                        <Text
+                            text={article.user.username}
+                            className={cls.username}
+                        />
+                        <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <Text
                         data-testid={'ArticleListItem.Title'}
@@ -66,7 +71,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     />
                     {types}
                     <AppImage
-                        fallback={<Skeleton width={'100%'} height={250}/>}
+                        fallback={<Skeleton width={'100%'} height={250} />}
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
@@ -90,7 +95,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                 </Card>
             </div>
-        )
+        );
     }
 
     return (
@@ -98,24 +103,27 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             data-testid={'ArticleListItem'}
             target={target}
             to={getRouteArticleDetails(article.id)}
-            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            className={classNames(cls.ArticleListItem, {}, [
+                className,
+                cls[view],
+            ])}
         >
             <Card>
                 <div className={cls.imageWrapper}>
                     <AppImage
-                        fallback={<Skeleton width={200} height={200}/>}
+                        fallback={<Skeleton width={200} height={200} />}
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
                     />
-                    <Text text={article.createdAt} className={cls.date}/>
+                    <Text text={article.createdAt} className={cls.date} />
                 </div>
                 <div className={cls.infoWrapper}>
                     {types}
                     {views}
                 </div>
-                <Text text={article.title} className={cls.title}/>
+                <Text text={article.title} className={cls.title} />
             </Card>
         </AppLink>
-    )
-})
+    );
+});

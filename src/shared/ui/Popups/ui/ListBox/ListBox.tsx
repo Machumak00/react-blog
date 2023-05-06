@@ -1,31 +1,31 @@
-import { Listbox as HListBox } from '@headlessui/react'
-import { Fragment, type ReactNode } from 'react'
+import { Listbox as HListBox } from '@headlessui/react';
+import { Fragment, type ReactNode } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { type DropdownDirection } from '@/shared/types/ui'
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { type DropdownDirection } from '@/shared/types/ui';
 
-import { Button } from '../../../Button/Button'
-import { HStack } from '../../../Stack'
-import { mapDirectionClass } from '../../styles/consts'
-import popupCls from '../../styles/popup.module.scss'
+import { Button } from '../../../Button/Button';
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
 
-import cls from './ListBox.module.scss'
+import cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
-    value: string
-    content: ReactNode
-    disabled?: boolean
+    value: string;
+    content: ReactNode;
+    disabled?: boolean;
 }
 
 interface ListBoxProps {
-    items?: ListBoxItem[]
-    className?: string
-    value?: string
-    defaultValue?: string
-    onChange?: <T extends string>(value: T) => void
-    readonly?: boolean
-    direction?: DropdownDirection
-    label?: string
+    items?: ListBoxItem[];
+    className?: string;
+    value?: string;
+    defaultValue?: string;
+    onChange?: <T extends string>(value: T) => void;
+    readonly?: boolean;
+    direction?: DropdownDirection;
+    label?: string;
 }
 
 export const ListBox = (props: ListBoxProps) => {
@@ -37,12 +37,10 @@ export const ListBox = (props: ListBoxProps) => {
         onChange,
         readonly,
         direction = 'bottom right',
-        label
-    } = props
+        label,
+    } = props;
 
-    const optionsClasses = [
-        mapDirectionClass[direction]
-    ]
+    const optionsClasses = [mapDirectionClass[direction]];
 
     return (
         <HStack gap={'4'} align={'center'}>
@@ -50,14 +48,15 @@ export const ListBox = (props: ListBoxProps) => {
             <HListBox
                 disabled={readonly}
                 as={'div'}
-                className={classNames(cls.Listbox, {}, [className, popupCls.popup])}
+                className={classNames(cls.Listbox, {}, [
+                    className,
+                    popupCls.popup,
+                ])}
                 value={value}
                 onChange={onChange}
             >
                 <HListBox.Button className={popupCls.trigger}>
-                    <Button disabled={readonly}>
-                        {value ?? defaultValue}
-                    </Button>
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
                 <HListBox.Options
                     className={classNames(cls.options, {}, optionsClasses)}
@@ -69,20 +68,12 @@ export const ListBox = (props: ListBoxProps) => {
                             disabled={item.disabled}
                             as={Fragment}
                         >
-                            {({
-                                active,
-                                selected
-                            }) => (
+                            {({ active, selected }) => (
                                 <li
-                                    className={
-                                        classNames(
-                                            cls.item,
-                                            {
-                                                [popupCls.active]: active,
-                                                [popupCls.disabled]: item.disabled
-                                            }
-                                        )
-                                    }
+                                    className={classNames(cls.item, {
+                                        [popupCls.active]: active,
+                                        [popupCls.disabled]: item.disabled,
+                                    })}
                                 >
                                     {item.content}
                                 </li>
@@ -92,5 +83,5 @@ export const ListBox = (props: ListBoxProps) => {
                 </HListBox.Options>
             </HListBox>
         </HStack>
-    )
-}
+    );
+};

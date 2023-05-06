@@ -1,56 +1,60 @@
-import { memo, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { getArticleDetailsData } from '@/entities/Article'
-import { getRouteArticleDetails, getRouteArticles } from '@/shared/const/router'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
-import { HStack } from '@/shared/ui/Stack'
+import { getArticleDetailsData } from '@/entities/Article';
+import {
+    getRouteArticleDetails,
+    getRouteArticles,
+} from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
 
-import { getCanEditArticle } from '../../model/selectors/article'
+import { getCanEditArticle } from '../../model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
-    const {
-        className
-    } = props
-    const { t } = useTranslation()
-    const navigate = useNavigate()
-    const article = useSelector(getArticleDetailsData)
-    const canEdit = useSelector(getCanEditArticle)
+export const ArticleDetailsPageHeader = memo(
+    (props: ArticleDetailsPageHeaderProps) => {
+        const { className } = props;
+        const { t } = useTranslation();
+        const navigate = useNavigate();
+        const article = useSelector(getArticleDetailsData);
+        const canEdit = useSelector(getCanEditArticle);
 
-    const onBackToList = useCallback(() => {
-        navigate(getRouteArticles())
-    }, [navigate])
+        const onBackToList = useCallback(() => {
+            navigate(getRouteArticles());
+        }, [navigate]);
 
-    const onEditArticle = useCallback(() => {
-        if (article) {
-            navigate(getRouteArticleDetails(article.id))
-        }
-    }, [article, navigate])
+        const onEditArticle = useCallback(() => {
+            if (article) {
+                navigate(getRouteArticleDetails(article.id));
+            }
+        }, [article, navigate]);
 
-    return (
-        <HStack max justify={'between'} className={classNames('', {}, [className])}>
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onBackToList}
+        return (
+            <HStack
+                max
+                justify={'between'}
+                className={classNames('', {}, [className])}
             >
-                {t('Назад к списку')}
-            </Button>
-            {canEdit && (
-                <Button
-                    className={''}
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onEditArticle}
-                >
-                    {t('Редактировать')}
+                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                    {t('Назад к списку')}
                 </Button>
-            )}
-        </HStack>
-    )
-})
+                {canEdit && (
+                    <Button
+                        className={''}
+                        theme={ButtonTheme.OUTLINE}
+                        onClick={onEditArticle}
+                    >
+                        {t('Редактировать')}
+                    </Button>
+                )}
+            </HStack>
+        );
+    },
+);

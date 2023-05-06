@@ -1,11 +1,11 @@
 export const useErrorMessage = (e: unknown): string => {
-    let message = ''
+    let message = '';
 
     if (typeof e === 'string') {
-        message = e
+        message = e;
     } else if (e instanceof Error) {
-        message = e.message
+        message = e.message;
     }
 
-    return message
-}
+    return message;
+};

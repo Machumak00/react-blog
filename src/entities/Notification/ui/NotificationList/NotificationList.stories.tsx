@@ -1,17 +1,17 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react';
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import { NotificationList } from './NotificationList'
+import { NotificationList } from './NotificationList';
 
 const meta: Meta<typeof NotificationList> = {
     title: 'entities/Notification/NotificationList',
     component: NotificationList,
-    decorators: [StoreDecorator({})]
-}
+    decorators: [StoreDecorator({})],
+};
 
-export default meta
-type Story = StoryObj<typeof NotificationList>
+export default meta;
+type Story = StoryObj<typeof NotificationList>;
 
 export const Normal: Story = {
     parameters: {
@@ -24,20 +24,20 @@ export const Normal: Story = {
                     {
                         id: '1',
                         title: 'Уведомление 1',
-                        description: 'Описание уведомления 1'
+                        description: 'Описание уведомления 1',
                     },
                     {
                         id: '2',
                         title: 'Уведомление 3',
-                        description: 'Описание уведомления 2'
+                        description: 'Описание уведомления 2',
                     },
                     {
                         id: '3',
                         title: 'Уведомление 3',
-                        description: 'Описание уведомления 3'
-                    }
-                ]
-            }
-        ]
-    }
-}
+                        description: 'Описание уведомления 3',
+                    },
+                ],
+            },
+        ],
+    },
+};

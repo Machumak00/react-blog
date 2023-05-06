@@ -1,20 +1,22 @@
-import { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn } from '@storybook/react';
+import React from 'react';
 
-import { type Article } from '@/entities/Article'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { type Article } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import { ArticleRecommendationsList } from './ArticleRecommendationsList'
+import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {
     title: 'features/articleRecommendationsList/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
-} as Meta<typeof ArticleRecommendationsList>
+        backgroundColor: { control: 'color' },
+    },
+} as Meta<typeof ArticleRecommendationsList>;
 
-const Template: StoryFn<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />
+const Template: StoryFn<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
+);
 
 const article: Article = {
     id: '1',
@@ -23,17 +25,17 @@ const article: Article = {
     views: 123,
     user: {
         id: '1',
-        username: '123'
+        username: '123',
     },
     blocks: [],
     type: [],
     title: '123',
-    subtitle: '12345'
-}
+    subtitle: '12345',
+};
 
-export const Normal = Template.bind({})
-Normal.args = {}
-Normal.decorators = [StoreDecorator({})]
+export const Normal = Template.bind({});
+Normal.args = {};
+Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [
         {
@@ -43,17 +45,17 @@ Normal.parameters = {
             response: [
                 {
                     ...article,
-                    id: '1'
+                    id: '1',
                 },
                 {
                     ...article,
-                    id: '2'
+                    id: '2',
                 },
                 {
                     ...article,
-                    id: '3'
-                }
-            ]
-        }
-    ]
-}
+                    id: '3',
+                },
+            ],
+        },
+    ],
+};

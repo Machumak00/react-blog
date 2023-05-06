@@ -1,15 +1,15 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react';
 
-import { StateSchema } from '@/app/providers/StoreProvider'
-import { Article } from '@/entities/Article'
-import { User } from '@/entities/User'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Article } from '@/entities/Article';
+import { User } from '@/entities/User';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import ArticleRating from './ArticleRating'
+import ArticleRating from './ArticleRating';
 
 const user: User = {
-    id: '1'
-}
+    id: '1',
+};
 
 const article: Article = {
     id: '1',
@@ -20,54 +20,58 @@ const article: Article = {
     createdAt: '',
     type: [],
     user,
-    blocks: []
-}
+    blocks: [],
+};
 
 const initialState: DeepPartial<StateSchema> = {
     user: { authData: user },
-    articleDetails: { data: article }
-}
+    articleDetails: { data: article },
+};
 
 const meta: Meta<typeof ArticleRating> = {
     title: 'features/articleRating/ArticleRating',
     component: ArticleRating,
-    decorators: [StoreDecorator(initialState)]
-}
+    decorators: [StoreDecorator(initialState)],
+};
 
-export default meta
-type Story = StoryObj<typeof ArticleRating>
+export default meta;
+type Story = StoryObj<typeof ArticleRating>;
 
 export const Normal: Story = {
     args: {
-        articleId: '1'
+        articleId: '1',
     },
     parameters: {
         mockData: [
             {
-                url: __API__ + `/article-ratings?userId=${user.id}&articleId=${article.id}`,
+                url:
+                    __API__ +
+                    `/article-ratings?userId=${user.id}&articleId=${article.id}`,
                 method: 'GET',
                 status: 200,
                 response: [
                     {
-                        rate: 4
-                    }
-                ]
-            }
-        ]
-    }
-}
+                        rate: 4,
+                    },
+                ],
+            },
+        ],
+    },
+};
 
 export const WithoutRate: Story = {
     args: {
-        articleId: article.id
+        articleId: article.id,
     },
     parameters: {
         mockData: [
             {
-                url: __API__ + `/article-ratings?userId=${user.id}&articleId=${article.id}`,
+                url:
+                    __API__ +
+                    `/article-ratings?userId=${user.id}&articleId=${article.id}`,
                 method: 'GET',
                 status: 200,
-                response: []
+                response: [],
             },
             {
                 url: __API__ + '/article-ratings',
@@ -76,10 +80,10 @@ export const WithoutRate: Story = {
                 body: {
                     articleId: '1',
                     rate: 3,
-                    userId: '1'
+                    userId: '1',
                 },
-                response: []
-            }
-        ]
-    }
-}
+                response: [],
+            },
+        ],
+    },
+};

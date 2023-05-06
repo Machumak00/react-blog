@@ -1,10 +1,10 @@
-import { memo } from 'react'
-import './Loader.scss'
+import { memo } from 'react';
+import './Loader.scss';
 
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface LoaderProps {
-    className?: string
+    className?: string;
 }
 
 export const Loader = memo(({ className }: LoaderProps) => {
@@ -15,5 +15,5 @@ export const Loader = memo(({ className }: LoaderProps) => {
             <div></div>
             <div></div>
         </div>
-    )
-})
+    );
+});

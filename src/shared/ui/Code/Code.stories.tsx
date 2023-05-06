@@ -1,24 +1,25 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
-import { Code } from './Code'
+import { Code } from './Code';
 
 export default {
     title: 'shared/Code',
-    component: Code
-} as ComponentMeta<typeof Code>
+    component: Code,
+} as ComponentMeta<typeof Code>;
 
-const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />
+const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
-const testText = 'import { type ComponentMeta, type ComponentStory } from \'@storybook/react\'\n' +
+const testText =
+    "import { type ComponentMeta, type ComponentStory } from '@storybook/react'\n" +
     '\n' +
-    'import { Code } from \'./Code\'\n' +
-    'import \'app/styles/index.scss\'\n' +
+    "import { Code } from './Code'\n" +
+    "import 'app/styles/index.scss'\n" +
     '\n' +
     'export default {\n' +
-    '    title: \'shared/Code\',\n' +
+    "    title: 'shared/Code',\n" +
     '    component: Code\n' +
     '} as ComponentMeta<typeof Code>\n' +
     '\n' +
@@ -27,15 +28,15 @@ const testText = 'import { type ComponentMeta, type ComponentStory } from \'@sto
     'export const Normal = Template.bind({})\n' +
     'Normal.args = {\n' +
     '    children: \n' +
-    '}'
+    '}';
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});
 Normal.args = {
-    text: testText
-}
+    text: testText,
+};
 
-export const Dark = Template.bind({})
+export const Dark = Template.bind({});
 Dark.args = {
-    text: testText
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+    text: testText,
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -1,24 +1,24 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import React from 'react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
+import React from 'react';
 
-import { Avatar } from './Avatar'
-import AvatarImg from './avatar.jpg'
+import { Avatar } from './Avatar';
+import AvatarImg from './avatar.jpg';
 
 export default {
     title: 'shared/Avatar',
-    component: Avatar
-} as ComponentMeta<typeof Avatar>
+    component: Avatar,
+} as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />
+const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
     src: AvatarImg,
-    size: 150
-}
+    size: 150,
+};
 
-export const Small = Template.bind({})
+export const Small = Template.bind({});
 Small.args = {
     src: AvatarImg,
-    size: 50
-}
+    size: 50,
+};

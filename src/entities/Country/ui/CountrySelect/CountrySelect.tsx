@@ -1,36 +1,34 @@
-import { memo, useCallback, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
+import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { getOptionsFromObject } from '@/shared/lib/getOptionsFromObject/getOptionsFromObject'
-import { ListBox } from '@/shared/ui/Popups'
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { getOptionsFromObject } from '@/shared/lib/getOptionsFromObject/getOptionsFromObject';
+import { ListBox } from '@/shared/ui/Popups';
 
-import { Country } from '../../model/types/country'
+import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
-    className?: string
-    value?: Country
-    onChange?: (value: Country) => void
-    readonly?: boolean
+    className?: string;
+    value?: Country;
+    onChange?: (value: Country) => void;
+    readonly?: boolean;
 }
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        readonly
-    } = props
+    const { className, value, onChange, readonly } = props;
 
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
     const options = useMemo(() => {
-        return getOptionsFromObject(Country)
-    }, [])
+        return getOptionsFromObject(Country);
+    }, []);
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country)
-    }, [onChange])
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox
@@ -43,5 +41,5 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
             readonly={readonly}
             direction={'top right'}
         />
-    )
-})
+    );
+});

@@ -1,38 +1,39 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { type ThunkConfig } from '@/app/providers/StoreProvider'
-import { type Comment } from '@/entities/Comment'
-import { useErrorMessage } from '@/shared/lib/hooks/useErrorMessage/useErrorMessage'
+import { type ThunkConfig } from '@/app/providers/StoreProvider';
+import { type Comment } from '@/entities/Comment';
+import { useErrorMessage } from '@/shared/lib/hooks/useErrorMessage/useErrorMessage';
 
-export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string | undefined, ThunkConfig<string>>(
+export const fetchCommentsByArticleId = createAsyncThunk<
+    Comment[],
+    string | undefined,
+    ThunkConfig<string>
+>(
     'articleDetailsPage/fetchCommentsByArticleId',
     async (articleId, thunkAPI) => {
-        const {
-            extra,
-            rejectWithValue
-        } = thunkAPI
+        const { extra, rejectWithValue } = thunkAPI;
 
         try {
             if (!articleId) {
-                throw new Error('Article id not found')
+                throw new Error('Article id not found');
             }
 
             const response = await extra.api.get<Comment[]>('/comments', {
                 params: {
                     articleId,
-                    _expand: 'user'
-                }
-            })
+                    _expand: 'user',
+                },
+            });
 
             if (!response.data) {
-                throw new Error('Response data not found')
+                throw new Error('Response data not found');
             }
 
-            return response.data
+            return response.data;
         } catch (e) {
-            const message = useErrorMessage(e)
+            const message = useErrorMessage(e);
 
-            return rejectWithValue(message)
+            return rejectWithValue(message);
         }
-    }
-)
+    },
+);

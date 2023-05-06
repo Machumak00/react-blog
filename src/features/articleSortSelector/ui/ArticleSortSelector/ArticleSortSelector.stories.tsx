@@ -1,15 +1,15 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleSortSelector } from './ArticleSortSelector'
+import { ArticleSortSelector } from './ArticleSortSelector';
 
 const meta: Meta<typeof ArticleSortSelector> = {
     title: 'features/articleSortSelector/ArticleSortSelector',
-    component: ArticleSortSelector
-}
+    component: ArticleSortSelector,
+};
 
-export default meta
-type Story = StoryObj<typeof ArticleSortSelector>
+export default meta;
+type Story = StoryObj<typeof ArticleSortSelector>;
 
 export const Normal: Story = {
-    args: {}
-}
+    args: {},
+};

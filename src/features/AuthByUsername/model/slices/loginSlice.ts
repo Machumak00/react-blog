@@ -1,43 +1,48 @@
-import { type ActionReducerMapBuilder, type PayloadAction } from '@reduxjs/toolkit'
+import {
+    type ActionReducerMapBuilder,
+    type PayloadAction,
+} from '@reduxjs/toolkit';
 
-import { buildSlice } from '@/shared/lib/store'
+import { buildSlice } from '@/shared/lib/store';
 
-import { loginByUsername } from '../services/loginByUsername/loginByUsername'
-import { type LoginSchema } from '../types/loginSchema'
+import { loginByUsername } from '../services/loginByUsername/loginByUsername';
+import { type LoginSchema } from '../types/loginSchema';
 
 const initialState: LoginSchema = {
     username: '',
     password: '',
-    isLoading: false
-}
+    isLoading: false,
+};
 
 export const loginSlice = buildSlice({
     name: 'login',
     initialState,
     reducers: {
         setUsername: (state, action: PayloadAction<string>) => {
-            state.username = action.payload
+            state.username = action.payload;
         },
         setPassword: (state, action: PayloadAction<string>) => {
-            state.password = action.payload
-        }
+            state.password = action.payload;
+        },
     },
     extraReducers: (builder: ActionReducerMapBuilder<any>) => {
         builder
             .addCase(loginByUsername.pending, (state) => {
-                state.error = undefined
-                state.isLoading = true
-            }).addCase(loginByUsername.fulfilled, (state, action) => {
-                state.isLoading = false
-            }).addCase(loginByUsername.rejected, (state, action) => {
-                state.isLoading = false
-                state.error = action.payload
+                state.error = undefined;
+                state.isLoading = true;
             })
-    }
-})
+            .addCase(loginByUsername.fulfilled, (state, action) => {
+                state.isLoading = false;
+            })
+            .addCase(loginByUsername.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            });
+    },
+});
 
 export const {
     actions: loginActions,
     reducer: loginReducer,
-    useActions: useLoginActions
-} = loginSlice
+    useActions: useLoginActions,
+} = loginSlice;

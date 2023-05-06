@@ -1,18 +1,18 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 
-import { Text } from '../Text/Text'
+import { Text } from '../Text/Text';
 
-import { Card } from './Card'
+import { Card } from './Card';
 
 export default {
     title: 'shared/Card',
-    component: Card
-} as ComponentMeta<typeof Card>
+    component: Card,
+} as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />
+const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});
 Normal.args = {
     // eslint-disable-next-line i18next/no-literal-string
-    children: <Text title={'Title'} text={'Text'}/>
-}
+    children: <Text title={'Title'} text={'Text'} />,
+};
