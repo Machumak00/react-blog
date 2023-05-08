@@ -1,15 +1,16 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
+
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import ArticleEditPage from './ArticleEditPage';
 
-export default {
+const meta: Meta<typeof ArticleEditPage> = {
     title: 'pages/ArticleEditPage/ArticleEditPage',
     component: ArticleEditPage,
-} as ComponentMeta<typeof ArticleEditPage>;
+    decorators: [StoreDecorator({})],
+};
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
-    <ArticleEditPage {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof ArticleEditPage>;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Normal: Story = {};

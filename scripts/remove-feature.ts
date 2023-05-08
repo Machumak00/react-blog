@@ -46,8 +46,6 @@ files.forEach((sourceFile) => {
                 SyntaxKind.ObjectLiteralExpression,
             );
 
-            console.log(objectOptions);
-
             if (!objectOptions) {
                 return;
             }

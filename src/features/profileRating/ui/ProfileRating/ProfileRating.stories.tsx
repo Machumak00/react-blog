@@ -43,13 +43,13 @@ export const Normal: Story = {
             {
                 url:
                     __API__ +
-                    `/article-ratings?userId=${user.id}&profileId=${profileId}`,
+                    `/profile-ratings?userId=${user.id}&profileId=${profileId}`,
                 method: 'GET',
                 status: 200,
                 response: [],
             },
             {
-                url: __API__ + '/article-ratings',
+                url: __API__ + '/profile-ratings',
                 method: 'POST',
                 status: 201,
                 body: {
@@ -57,7 +57,7 @@ export const Normal: Story = {
                     rate: 3,
                     userId: '1',
                 },
-                response: [{}],
+                response: [],
             },
         ],
     },

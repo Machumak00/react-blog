@@ -1,29 +1,30 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
+
+import Avatar from '@/shared/assets/tests/avatar.jpg';
 
 import { type Article } from '../../model/types/article';
 
 import { ArticleList } from './ArticleList';
 
-export default {
+const meta: Meta<typeof ArticleList> = {
     title: 'entities/Article/ArticleList',
     component: ArticleList,
-} as ComponentMeta<typeof ArticleList>;
+};
 
-const Template: ComponentStory<typeof ArticleList> = (args) => (
-    <ArticleList {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof ArticleList>;
 
 const article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: Avatar,
     views: 1022,
     createdAt: '26.02.2022',
     user: {
         id: '1',
         username: 'admin',
-        avatar: 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg',
+        avatar: Avatar,
     },
     type: ['IT'],
     blocks: [
@@ -54,7 +55,7 @@ const article = {
         {
             id: '2',
             type: 'IMAGE',
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            src: Avatar,
             title: 'Рисунок 1 - скриншот сайта',
         },
         {
@@ -74,7 +75,7 @@ const article = {
         {
             id: '8',
             type: 'IMAGE',
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            src: Avatar,
             title: 'Рисунок 1 - скриншот сайта',
         },
         {
@@ -88,28 +89,32 @@ const article = {
     ],
 } as Article;
 
-export const Big = Template.bind({});
-Big.args = {
-    articles: [article, article],
-    view: 'big',
+export const Big = {
+    args: {
+        articles: [article, article],
+        view: 'big',
+    },
 };
 
-export const Small = Template.bind({});
-Small.args = {
-    articles: [article, article],
-    view: 'small',
+export const Small: Story = {
+    args: {
+        articles: [article, article],
+        view: 'small',
+    },
 };
 
-export const LoadingBig = Template.bind({});
-LoadingBig.args = {
-    articles: [article, article],
-    isLoading: true,
-    view: 'big',
+export const LoadingBig = {
+    args: {
+        articles: [article, article],
+        isLoading: true,
+        view: 'big',
+    },
 };
 
-export const LoadingSmall = Template.bind({});
-LoadingSmall.args = {
-    articles: [article, article],
-    isLoading: true,
-    view: 'small',
+export const LoadingSmall = {
+    args: {
+        articles: [article, article],
+        isLoading: true,
+        view: 'small',
+    },
 };

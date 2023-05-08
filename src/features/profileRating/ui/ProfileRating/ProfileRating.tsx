@@ -10,12 +10,12 @@ import {
     useRateProfile,
 } from '../../api/profileRatingApi';
 
-export interface ArticleRatingProps {
+export interface ProfileRatingProps {
     className?: string;
     profileId: string;
 }
 
-const ProfileRating = memo((props: ArticleRatingProps) => {
+const ProfileRating = memo((props: ProfileRatingProps) => {
     const { className, profileId } = props;
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
