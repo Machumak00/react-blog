@@ -249,6 +249,11 @@
       "avatar": "https://icon-library.com/images/avatar-icon-images/avatar-iconimages-4.jpg",
       "features": {
         "isArticleRatingEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
       }
     },
     {
@@ -261,6 +266,11 @@
       "avatar": "https://m.economictimes.com/thumb/msid-98683708,width-1200,height-900,resizemode-4,imgsize-99158/russian-hacktivist-group-phoenix-targets-indias-health-ministry-website-cloudsek.jpg",
       "features": {
         "isArticleRatingEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
       }
     },
     {
@@ -273,6 +283,11 @@
       "avatar": "https://cdn-icons-png.flaticon.com/512/76/76828.png",
       "features": {
         "isArticleRatingEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
       }
     },
     {
@@ -285,6 +300,11 @@
       "avatar": "https://cdn-icons-png.flaticon.com/512/76/76828.png",
       "features": {
         "isArticleRatingEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
       }
     }
   ],
