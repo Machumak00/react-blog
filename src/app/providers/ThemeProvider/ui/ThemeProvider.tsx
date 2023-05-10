@@ -17,12 +17,14 @@ interface ThemeProviderProps {
 
 const ThemeProvider: FC<ThemeProviderProps> = (props: ThemeProviderProps) => {
     const { initialTheme, children } = props;
-    const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
+    const { theme: defaultTheme } = useJsonSettings();
     const [isThemeMounted, setIsThemeMounted] = useState(false);
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+    const [theme, setTheme] = useState<Theme>(
+        initialTheme || defaultTheme || Theme.LIGHT,
+    );
 
     useEffect(() => {
-        if (!isThemeMounted) {
+        if (!isThemeMounted && defaultTheme) {
             setTheme(defaultTheme);
             setIsThemeMounted(true);
         }
