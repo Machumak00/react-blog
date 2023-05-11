@@ -29,7 +29,8 @@
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clearCache/index.js",
-    "update:all-packages": "npm i -g npm-check-updates && ncu -u && npm i"
+    "update:all-packages": "npm i -g npm-check-updates && ncu -u && npm i",
+    "remove-feature": "ts-node ./scripts/remove-feature.ts"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
