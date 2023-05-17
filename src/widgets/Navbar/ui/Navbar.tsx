@@ -8,6 +8,7 @@ import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -34,27 +35,48 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <header className={classNames(cls.Navbar, {}, [className])}>
-                <HStack justify={'between'}>
-                    <HStack align={'center'}>
-                        <Text
-                            className={cls.appName}
-                            title={t('Название приложения')}
-                            theme={TextTheme.INVERTED}
-                        />
-                        <AppLink
-                            to={getRouteArticleCreate()}
-                            theme={AppLinkTheme.INVERTED}
-                        >
-                            {t('Создать статью')}
-                        </AppLink>
-                    </HStack>
-                    <HStack gap={'16'} align={'center'} className={cls.actions}>
-                        <NotificationButton />
-                        <AvatarDropdown user={authData} />
-                    </HStack>
-                </HStack>
-            </header>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <header
+                        className={classNames(cls.NavbarRedesigned, {}, [
+                            className,
+                        ])}
+                    >
+                        <HStack gap={'16'} className={cls.actions}>
+                            <NotificationButton />
+                            <AvatarDropdown user={authData} />
+                        </HStack>
+                    </header>
+                }
+                off={
+                    <header className={classNames(cls.Navbar, {}, [className])}>
+                        <HStack justify={'between'}>
+                            <HStack align={'center'}>
+                                <Text
+                                    className={cls.appName}
+                                    title={t('Название приложения')}
+                                    theme={TextTheme.INVERTED}
+                                />
+                                <AppLink
+                                    to={getRouteArticleCreate()}
+                                    theme={AppLinkTheme.INVERTED}
+                                >
+                                    {t('Создать статью')}
+                                </AppLink>
+                            </HStack>
+                            <HStack
+                                gap={'16'}
+                                align={'center'}
+                                className={cls.actions}
+                            >
+                                <NotificationButton />
+                                <AvatarDropdown user={authData} />
+                            </HStack>
+                        </HStack>
+                    </header>
+                }
+            />
         );
     }
 

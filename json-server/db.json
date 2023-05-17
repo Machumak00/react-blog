@@ -248,10 +248,11 @@
       ],
       "avatar": "https://icon-library.com/images/avatar-icon-images/avatar-iconimages-4.jpg",
       "features": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_pink_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "isArticlePageWasOpened": true
       }
