@@ -2,8 +2,9 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+import { Button } from '@/shared/ui/deprecated/Button';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
+
 
 import cls from './PageError.module.scss';
 
