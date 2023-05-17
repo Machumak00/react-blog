@@ -1,42 +1,59 @@
-import { type RuleSetRule } from 'webpack'
+import { type RuleSetRule } from 'webpack';
 
-import { buildBabelLoader } from './loaders/buildBabelLoader'
-import { buildCssLoader } from './loaders/buildCssLoader'
-import { type BuildOptions } from './types/config'
+import { buildBabelLoader } from './loaders/buildBabelLoader';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { type BuildOptions } from './types/config';
 
 export function buildLoaders (options: BuildOptions): RuleSetRule[] {
-    const { isDev } = options
+    const { isDev } = options;
 
     const codeBabelLoader = buildBabelLoader({
         isTsx: false,
-        isDev
-    })
+        isDev,
+    });
     const tsxCodeBabelLoader = buildBabelLoader({
         isTsx: true,
-        isDev
-    })
+        isDev,
+    });
 
-    const cssLoader = buildCssLoader(isDev)
+    const cssLoader = buildCssLoader(isDev);
 
     const svgLoader = {
         test: /\.svg$/,
-        use: ['@svgr/webpack']
-    }
+        use: [
+            {
+                loader: '@svgr/webpack',
+                options: {
+                    icon: true,
+                    svgoConfig: {
+                        plugins: [
+                            {
+                                name: 'convertColors',
+                                params: {
+                                    currentColor: true,
+                                },
+                            },
+                        ],
+                    },
+                },
+            },
+        ],
+    };
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
         use: [
             {
-                loader: 'file-loader'
-            }
-        ]
-    }
+                loader: 'file-loader',
+            },
+        ],
+    };
 
     return [
         codeBabelLoader,
         tsxCodeBabelLoader,
         cssLoader,
         svgLoader,
-        fileLoader
-    ]
+        fileLoader,
+    ];
 }
