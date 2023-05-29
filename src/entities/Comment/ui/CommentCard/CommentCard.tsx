@@ -1,13 +1,13 @@
 import { memo } from 'react';
 
+
 import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
-
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import { type Comment } from '../../model/types/comment';
 

@@ -7,10 +7,10 @@ import {
 } from '@/shared/lib/components/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
-import { Overlay } from '../Overlay';
-import { Portal } from '../Portal';
+import { Overlay } from '../../redesigned/Overlay';
+import { Portal } from '../../redesigned/Portal';
+import { VStack } from '../../redesigned/Stack';
 import { Skeleton } from '../Skeleton';
-import { VStack } from '../Stack';
 
 import cls from './Drawer.module.scss';
 

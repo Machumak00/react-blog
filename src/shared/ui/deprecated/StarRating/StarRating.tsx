@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import StarIcon from '../../../assets/icons/star-20-20.svg';
 import { Icon } from '../../deprecated/Icon/Icon';
-import { HStack } from '../Stack';
+import { HStack } from '../../redesigned/Stack';
 
 import cls from './StarRating.module.scss';
 
