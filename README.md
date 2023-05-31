@@ -112,7 +112,7 @@ import { Theme } from "@/shared/const/theme";
 import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 const meta: Meta<typeof Button> = {
-    title: "features/avatarDropdown/AvatarDropdown",
+    title: "features/AvatarDropdown/AvatarDropdown",
     component: Button,
 };
 
@@ -209,13 +209,13 @@ export const Clear: Story = {
 ## Фичи (features)
 
 - [AddCommentForm](/src/features/AddCommentForm)
-- [articleRating](/src/features/articleRating)
-- [articleRecommendationsList](/src/features/articleRecommendationsList)
+- [articleRating](/src/features/ArticleRating)
+- [articleRecommendationsList](/src/features/ArticleRecommendationsList)
 - [AuthByUsername](/src/features/AuthByUsername)
-- [avatarDropdown](/src/features/avatarDropdown)
-- [editableProfileCard](/src/features/editableProfileCard)
+- [avatarDropdown](/src/features/AvatarDropdown)
+- [editableProfileCard](/src/features/EditableProfileCard)
 - [LangSwitcher](/src/features/LangSwitcher)
-- [notificationButton](/src/features/notificationButton)
-- [profileRating](/src/features/profileRating)
+- [notificationButton](/src/features/NotificationButton)
+- [profileRating](/src/features/ProfileRating)
 - [ScrollSave](/src/features/ScrollSave)
 - [ThemeSwitcher](/src/features/ThemeSwitcher)

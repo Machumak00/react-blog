@@ -16,10 +16,10 @@ export const getArticlesPageHasMore = (state: StateSchema) =>
 export const getArticlesPageMounted = (state: StateSchema) =>
     state.articlesPage?._mounted;
 export const getArticlesPageSort = (state: StateSchema) =>
-    state.articlesPage?.sort ?? ArticleSortField.CREATED;
+    state.articlesPage?.sort || ArticleSortField.CREATED;
 export const getArticlesPageOrder = (state: StateSchema) =>
-    state.articlesPage?.order ?? 'asc';
+    state.articlesPage?.order || 'asc';
 export const getArticlesPageSearch = (state: StateSchema) =>
-    state.articlesPage?.search ?? '';
+    state.articlesPage?.search || '';
 export const getArticlesPageType = (state: StateSchema) =>
-    state.articlesPage?.type ?? ArticleType.ALL;
+    state.articlesPage?.type || ArticleType.ALL;

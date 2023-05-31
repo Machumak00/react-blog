@@ -4,7 +4,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 import { Tabs } from './Tabs';
 
 export default {
-    title: 'shared/Tabs',
+    title: 'shared/deprecated/Tabs',
     component: Tabs,
 } as ComponentMeta<typeof Tabs>;
 

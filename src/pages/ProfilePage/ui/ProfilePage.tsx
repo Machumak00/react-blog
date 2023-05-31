@@ -1,9 +1,8 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
-
-import { EditableProfileCard } from '@/features/editableProfileCard';
-import { ProfileRating } from '@/features/profileRating';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
+import { ProfileRating } from '@/features/ProfileRating';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';

@@ -3,7 +3,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 import { Popover } from './Popover';
 
 export default {
-    title: 'shared/Popover',
+    title: 'shared/deprecated/Popover',
     component: Popover,
 } as ComponentMeta<typeof Popover>;
 

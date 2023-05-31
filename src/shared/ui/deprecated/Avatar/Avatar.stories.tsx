@@ -5,7 +5,7 @@ import { Avatar } from './Avatar';
 import AvatarImg from './avatar.jpg';
 
 export default {
-    title: 'shared/Avatar',
+    title: 'shared/deprecated/Avatar',
     component: Avatar,
 } as ComponentMeta<typeof Avatar>;
 

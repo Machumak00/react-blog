@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { AppImage } from './AppImage';
 
 const meta: Meta<typeof AppImage> = {
-    title: 'shared/AppImage',
+    title: 'shared/redesigned/AppImage',
     component: AppImage,
 };
 

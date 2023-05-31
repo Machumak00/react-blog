@@ -4,7 +4,7 @@ import React from 'react';
 import { Modal } from './Modal';
 
 export default {
-    title: 'shared/Modal',
+    title: 'shared/deprecated/Modal',
     component: Modal,
     argTypes: {
         backgroundColor: { control: 'color' },

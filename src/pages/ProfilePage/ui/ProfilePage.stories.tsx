@@ -4,7 +4,7 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
 import { User, UserRole } from '@/entities/User';
-import { ProfileSchema } from '@/features/editableProfileCard';
+import { ProfileSchema } from '@/features/EditableProfileCard';
 import Avatar from '@/shared/assets/tests/avatar.jpg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';

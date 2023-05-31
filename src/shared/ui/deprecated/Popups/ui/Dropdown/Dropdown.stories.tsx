@@ -5,7 +5,7 @@ import { Button } from '../../../Button/Button';
 import { Dropdown } from './Dropdown';
 
 export default {
-    title: 'shared/Dropdown',
+    title: 'shared/deprecated/Dropdown',
     component: Dropdown,
     decorators: [
         (Story) => (

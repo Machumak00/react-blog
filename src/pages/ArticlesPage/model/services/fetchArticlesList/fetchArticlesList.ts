@@ -31,6 +31,8 @@ export const fetchArticlesList = createAsyncThunk<
     const search = getArticlesPageSearch(getState());
     const type = getArticlesPageType(getState());
 
+    console.log(sort);
+
     try {
         addQueryParams({
             sort,

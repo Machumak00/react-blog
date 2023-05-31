@@ -3,7 +3,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 import { ListBox } from './ListBox';
 
 export default {
-    title: 'shared/ListBox',
+    title: 'shared/deprecated/ListBox',
     component: ListBox,
     decorators: [
         (Story) => (
@@ -21,9 +21,19 @@ const Template: ComponentStory<typeof ListBox> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {
     items: [
-        { value: '1', content: 'test1' },
-        { value: '2', content: 'test2', disabled: true },
-        { value: '3', content: 'test3' },
+        {
+            value: '1',
+            content: 'test1',
+        },
+        {
+            value: '2',
+            content: 'test2',
+            disabled: true,
+        },
+        {
+            value: '3',
+            content: 'test3',
+        },
     ],
     value: '1',
 };
@@ -31,9 +41,19 @@ Normal.args = {
 export const Readonly = Template.bind({});
 Readonly.args = {
     items: [
-        { value: '1', content: 'test1' },
-        { value: '2', content: 'test2', disabled: true },
-        { value: '3', content: 'test3' },
+        {
+            value: '1',
+            content: 'test1',
+        },
+        {
+            value: '2',
+            content: 'test2',
+            disabled: true,
+        },
+        {
+            value: '3',
+            content: 'test3',
+        },
     ],
     value: '1',
     readonly: true,
@@ -42,9 +62,19 @@ Readonly.args = {
 export const topLeft = Template.bind({});
 topLeft.args = {
     items: [
-        { value: '1', content: 'test1' },
-        { value: '2', content: 'test2', disabled: true },
-        { value: '3', content: 'test3' },
+        {
+            value: '1',
+            content: 'test1',
+        },
+        {
+            value: '2',
+            content: 'test2',
+            disabled: true,
+        },
+        {
+            value: '3',
+            content: 'test3',
+        },
     ],
     value: '1',
     direction: 'top left',
@@ -53,9 +83,19 @@ topLeft.args = {
 export const topRight = Template.bind({});
 topRight.args = {
     items: [
-        { value: '1', content: 'test1' },
-        { value: '2', content: 'test2', disabled: true },
-        { value: '3', content: 'test3' },
+        {
+            value: '1',
+            content: 'test1',
+        },
+        {
+            value: '2',
+            content: 'test2',
+            disabled: true,
+        },
+        {
+            value: '3',
+            content: 'test3',
+        },
     ],
     value: '1',
     direction: 'top right',
@@ -64,9 +104,19 @@ topRight.args = {
 export const bottomLeft = Template.bind({});
 bottomLeft.args = {
     items: [
-        { value: '1', content: 'test1' },
-        { value: '2', content: 'test2', disabled: true },
-        { value: '3', content: 'test3' },
+        {
+            value: '1',
+            content: 'test1',
+        },
+        {
+            value: '2',
+            content: 'test2',
+            disabled: true,
+        },
+        {
+            value: '3',
+            content: 'test3',
+        },
     ],
     value: '1',
     direction: 'bottom left',
@@ -75,9 +125,19 @@ bottomLeft.args = {
 export const bottomRight = Template.bind({});
 bottomRight.args = {
     items: [
-        { value: '1', content: 'test1' },
-        { value: '2', content: 'test2', disabled: true },
-        { value: '3', content: 'test3' },
+        {
+            value: '1',
+            content: 'test1',
+        },
+        {
+            value: '2',
+            content: 'test2',
+            disabled: true,
+        },
+        {
+            value: '3',
+            content: 'test3',
+        },
     ],
     value: '1',
     direction: 'bottom right',

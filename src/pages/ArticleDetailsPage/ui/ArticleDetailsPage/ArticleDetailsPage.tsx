@@ -1,10 +1,9 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
-
 import { ArticleDetails } from '@/entities/Article';
-import { ArticleRating } from '@/features/articleRating';
-import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+import { ArticleRating } from '@/features/ArticleRating';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,

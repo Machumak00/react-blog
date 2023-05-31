@@ -7,7 +7,7 @@
 
 Запустить сторибук можно командой:
 
--   `npm run storybook`
+- `npm run storybook`
 
 Подробнее о [Storybook](/docs/storybook.md)
 
@@ -22,7 +22,7 @@ import { Theme } from "@/shared/const/theme";
 import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 const meta: Meta<typeof Button> = {
-    title: "features/avatarDropdown/AvatarDropdown",
+    title: "features/AvatarDropdown/AvatarDropdown",
     component: Button,
 };
 
