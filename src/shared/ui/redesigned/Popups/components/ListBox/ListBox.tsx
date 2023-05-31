@@ -5,7 +5,6 @@ import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
-
 import { HStack } from '../../../../redesigned/Stack';
 import { Button } from '../../../Button/Button';
 import { Icon } from '../../../Icon';
@@ -51,7 +50,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
 
     return (
         <HStack gap="4">
-            {label && <span>{`${label}>`}</span>}
+            {label && <span>{`${label}`}</span>}
             <HListBox
                 disabled={readonly}
                 as="div"
