@@ -1,13 +1,12 @@
-import { type HTMLAttributeAnchorTarget, memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui/deprecated/Loader';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 
-import { type Article, type ArticleView } from '../../model/types/article';
+import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 import cls from './ArticleList.module.scss';
 
@@ -15,9 +14,20 @@ interface ArticleListProps {
     className?: string;
     articles: Article[];
     isLoading?: boolean;
-    view?: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    view?: ArticleView;
 }
+
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === 'small' ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton
+                className={cls.card}
+                key={index}
+                view={view}
+            />
+        ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { className, articles, view = 'small', isLoading, target } = props;
@@ -39,18 +49,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         <div
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-            data-testid={'ArticleList'}
+            data-testid="ArticleList"
         >
-            {articles.map((article) => (
+            {articles.map((item) => (
                 <ArticleListItem
-                    article={article}
+                    article={item}
                     view={view}
                     target={target}
-                    key={article.id}
+                    key={item.id}
                     className={cls.card}
                 />
             ))}
-            {isLoading && <Loader className={cls.loader} />}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });
