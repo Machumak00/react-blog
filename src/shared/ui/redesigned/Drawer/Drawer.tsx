@@ -1,16 +1,15 @@
-import { memo, type ReactNode, useCallback, useEffect } from 'react';
+import React, { memo, ReactNode, useCallback, useEffect } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     AnimationProvider,
     useAnimationModules,
 } from '@/shared/lib/components/AnimationProvider';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
-import { Overlay } from '../../redesigned/Overlay';
-import { Portal } from '../../redesigned/Portal';
-import { VStack } from '../../redesigned/Stack';
-import { Skeleton } from '../Skeleton';
+import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../Portal/Portal';
 
 import cls from './Drawer.module.scss';
 
@@ -24,11 +23,11 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-const DrawerContent = memo((props: DrawerProps) => {
+export const DrawerContent = memo((props: DrawerProps) => {
     const { Spring, Gesture } = useAnimationModules();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
     const { theme } = useTheme();
-    const { className, children, isOpen, onClose, lazy } = props;
+    const { className, children, onClose, isOpen, lazy } = props;
 
     const openDrawer = useCallback(() => {
         api.start({
@@ -41,7 +40,7 @@ const DrawerContent = memo((props: DrawerProps) => {
         if (isOpen) {
             openDrawer();
         }
-    }, [isOpen, openDrawer]);
+    }, [api, isOpen, openDrawer]);
 
     const close = (velocity = 0) => {
         api.start({
@@ -63,9 +62,7 @@ const DrawerContent = memo((props: DrawerProps) => {
             movement: [, my],
             cancel,
         }) => {
-            if (my < -70) {
-                cancel();
-            }
+            if (my < -70) cancel();
 
             if (last) {
                 if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
@@ -88,22 +85,27 @@ const DrawerContent = memo((props: DrawerProps) => {
         },
     );
 
-    if (lazy && !isOpen) {
+    if (!isOpen) {
         return null;
     }
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
                 className={classNames(cls.Drawer, {}, [
                     className,
                     theme,
                     'app_drawer',
+                    toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => cls.drawerNew,
+                        off: () => cls.drawerOld,
+                    }),
                 ])}
             >
-                <Overlay onClick={() => close()} />
+                <Overlay onClick={close} />
                 <Spring.a.div
                     className={cls.sheet}
                     style={{
@@ -120,35 +122,15 @@ const DrawerContent = memo((props: DrawerProps) => {
     );
 });
 
-const DrawerAsync = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationModules();
 
     if (!isLoaded) {
-        return (
-            <VStack>
-                <VStack gap={'16'} className={classNames('', {}, [])}>
-                    <Skeleton
-                        width={'100%'}
-                        borderRadius={'8px'}
-                        height={'80px'}
-                    />
-                    <Skeleton
-                        width={'100%'}
-                        borderRadius={'8px'}
-                        height={'80px'}
-                    />
-                    <Skeleton
-                        width={'100%'}
-                        borderRadius={'8px'}
-                        height={'80px'}
-                    />
-                </VStack>
-            </VStack>
-        );
+        return null;
     }
 
     return <DrawerContent {...props} />;
-});
+};
 
 /**
  * Устарел, используем новые компоненты из папки redesigned
