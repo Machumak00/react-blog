@@ -8,16 +8,16 @@ interface SkeletonProps {
     className?: string;
     height?: string | number;
     width?: string | number;
-    border?: string;
+    borderRadius?: string;
 }
 
 export const Skeleton = memo((props: SkeletonProps) => {
-    const { className, height, width, border } = props;
+    const { className, height, width, borderRadius } = props;
 
     const styles: CSSProperties = {
         width,
         height,
-        borderRadius: border,
+        borderRadius,
     };
 
     return (
