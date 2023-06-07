@@ -29,7 +29,7 @@ export const ProfileCardRedesignedError = () => {
 
 export const ProfileCardRedesignedSkeleton = () => {
     return (
-        <Card padding="24" max>
+        <Card border={'partial'} padding="16" max>
             <VStack gap="32">
                 <HStack max justify="center">
                     <Skeleton borderRadius="100%" width={128} height={128} />
@@ -71,7 +71,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
 
     return (
-        <Card padding="24" max className={className}>
+        <Card border={'partial'} padding="16" max className={className}>
             <VStack gap="32">
                 {data?.avatar && (
                     <HStack justify="center" max>
