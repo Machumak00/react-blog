@@ -1,10 +1,11 @@
 import { memo, useState } from 'react';
 
+import StarIcon from '@/shared/assets/icons/star-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 
-import StarIcon from '../../../assets/icons/star-20-20.svg';
-import { Icon } from '../../deprecated/Icon/Icon';
-import { HStack } from '../../redesigned/Stack';
+import { Icon } from '../../redesigned/Icon';
+import { Icon as IconDeprecated } from '../Icon/Icon';
 
 import cls from './StarRating.module.scss';
 
@@ -22,7 +23,7 @@ const stars = [1, 2, 3, 4, 5];
  * @deprecated
  */
 export const StarRating = memo((props: StarRatingProps) => {
-    const { className, onSelect, selectedStars = 0, size = 30 } = props;
+    const { className, size = 30, selectedStars = 0, onSelect } = props;
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
@@ -47,28 +48,48 @@ export const StarRating = memo((props: StarRatingProps) => {
     };
 
     return (
-        <HStack justify={'center'} className={className}>
-            {stars.map((starNumber) => (
-                <Icon
-                    className={classNames(
+        <div
+            className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.StarRatingRedesigned,
+                    off: () => cls.StarRating,
+                }),
+                {},
+                [className],
+            )}
+        >
+            {stars.map((starNumber) => {
+                const commonProps = {
+                    className: classNames(
                         cls.starIcon,
-                        {
-                            [cls.hovered]: currentStarsCount >= starNumber,
-                            [cls.selected]: isSelected,
-                        },
-                        [cls.normal],
-                    )}
-                    Svg={StarIcon}
-                    key={starNumber}
-                    width={size}
-                    height={size}
-                    onMouseLeave={onLeave}
-                    onMouseEnter={onHover(starNumber)}
-                    onClick={onClick(starNumber)}
-                    data-testid={`StarRating.${starNumber}`}
-                    data-selected={currentStarsCount >= starNumber}
-                />
-            ))}
-        </HStack>
+                        { [cls.selected]: isSelected },
+                        [
+                            currentStarsCount >= starNumber
+                                ? cls.hovered
+                                : cls.normal,
+                        ],
+                    ),
+                    Svg: StarIcon,
+                    key: starNumber,
+                    width: size,
+                    height: size,
+                    onMouseLeave: onLeave,
+                    onMouseEnter: onHover(starNumber),
+                    onClick: onClick(starNumber),
+                    'data-testid': `StarRating.${starNumber}`,
+                    'data-selected': currentStarsCount >= starNumber,
+                };
+
+                return (
+                    <ToggleFeatures
+                        key={starNumber}
+                        feature="isAppRedesigned"
+                        on={<Icon clickable={!isSelected} {...commonProps} />}
+                        off={<IconDeprecated {...commonProps} />}
+                    />
+                );
+            })}
+        </div>
     );
 });
