@@ -252,7 +252,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "isArticlePageWasOpened": true
       }
@@ -266,7 +266,8 @@
       ],
       "avatar": "https://m.economictimes.com/thumb/msid-98683708,width-1200,height-900,resizemode-4,imgsize-99158/russian-hacktivist-group-phoenix-targets-indias-health-ministry-website-cloudsek.jpg",
       "features": {
-        "isArticleRatingEnabled": false
+        "isArticleRatingEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
