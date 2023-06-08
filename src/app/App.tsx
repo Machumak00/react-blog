@@ -2,6 +2,7 @@ import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUserMounted, initAuthData } from '@/entities/User';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -23,7 +24,20 @@ const App = () => {
     }, [dispatch]);
 
     if (!mounted) {
-        return <PageLoader />;
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <div
+                        id={'app'}
+                        className={classNames('app_redesigned', {}, [theme])}
+                    >
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={<PageLoader />}
+            />
+        );
     }
 
     return (
@@ -39,7 +53,6 @@ const App = () => {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<div>toolbar</div>}
                         />
                     </Suspense>
                 </div>

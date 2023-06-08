@@ -1,7 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { type ThunkConfig } from '@/app/providers/StoreProvider';
-import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
+import {
+    LOCAL_STORAGE_LAST_DESIGN_KEY,
+    USER_LOCAL_STORAGE_KEY,
+} from '@/shared/const/localStorage';
 import { useErrorMessage } from '@/shared/lib/hooks/useErrorMessage/useErrorMessage';
 
 import { getJsonSettingsQuery } from '../../api/userApi';
@@ -19,7 +22,16 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
                 throw new Error('User not found');
             }
 
-            return await dispatch(getJsonSettingsQuery(userId)).unwrap();
+            const response = await dispatch(
+                getJsonSettingsQuery(userId),
+            ).unwrap();
+
+            localStorage.setItem(
+                LOCAL_STORAGE_LAST_DESIGN_KEY,
+                response.features?.isAppRedesigned ? 'new' : 'old',
+            );
+
+            return response;
         } catch (e) {
             const message = useErrorMessage(e);
 
