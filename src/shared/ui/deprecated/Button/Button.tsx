@@ -1,4 +1,9 @@
-import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react';
+import {
+    type ButtonHTMLAttributes,
+    ForwardedRef,
+    forwardRef,
+    type ReactNode,
+} from 'react';
 
 import { classNames, type Mods } from '@/shared/lib/classNames/classNames';
 
@@ -33,36 +38,39 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
-export const Button = memo((props: ButtonProps) => {
-    const {
-        className,
-        children,
-        theme = ButtonTheme.OUTLINE,
-        square,
-        size = ButtonSize.M,
-        disabled,
-        fullWidth,
-        ...otherProps
-    } = props;
+export const Button = forwardRef(
+    (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+        const {
+            className,
+            children,
+            theme = ButtonTheme.OUTLINE,
+            square,
+            size = ButtonSize.M,
+            disabled,
+            fullWidth,
+            ...otherProps
+        } = props;
 
-    const mods: Mods = {
-        [cls.square]: square,
-        [cls.disabled]: disabled,
-        [cls.fullWidth]: fullWidth,
-    };
+        const mods: Mods = {
+            [cls.square]: square,
+            [cls.disabled]: disabled,
+            [cls.fullWidth]: fullWidth,
+        };
 
-    return (
-        <button
-            type="button"
-            className={classNames(cls.Button, mods, [
-                className,
-                cls[theme],
-                cls[size],
-            ])}
-            disabled={disabled}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
-});
+        return (
+            <button
+                type="button"
+                className={classNames(cls.Button, mods, [
+                    className,
+                    cls[theme],
+                    cls[size],
+                ])}
+                disabled={disabled}
+                {...otherProps}
+                ref={ref}
+            >
+                {children}
+            </button>
+        );
+    },
+);
